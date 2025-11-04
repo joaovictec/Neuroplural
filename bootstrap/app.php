@@ -53,6 +53,17 @@ return Application::configure(basePath: dirname(__DIR__))
     |
     */
     ->withMiddleware(function (Middleware $middleware): void {
+        // Confia nos headers de proxy do Codespaces/GitHub.dev
+        // (útil quando rodando atrás de reverse proxies como Codespaces)
+        $middleware->trustProxies(
+            '*',
+            \Symfony\Component\HttpFoundation\Request::HEADER_X_FORWARDED_FOR
+            | \Symfony\Component\HttpFoundation\Request::HEADER_X_FORWARDED_HOST
+            | \Symfony\Component\HttpFoundation\Request::HEADER_X_FORWARDED_PROTO
+            | \Symfony\Component\HttpFoundation\Request::HEADER_X_FORWARDED_PORT
+            | \Symfony\Component\HttpFoundation\Request::HEADER_X_FORWARDED_PREFIX
+        );
+        
         // Registra o alias 'eh.admin' para o middleware EhAdmin
         // Isso permite usar 'eh.admin' nas rotas em vez do caminho completo
         $middleware->alias([
