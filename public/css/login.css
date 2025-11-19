@@ -1,0 +1,191 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #f9f9f9;
+}
+
+/* Topo preto com contato */
+.top-bar {
+  background-color: #000;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 20px;
+  font-size: 0.9rem;
+}
+
+.social-icons i {
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+/* Header */
+header {
+  background: linear-gradient(to right, #00AFc0, #FECA54);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 30px;
+  color: #fff;
+  height: 5vh;
+}
+
+header nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 15px;
+  font-weight: bold;
+}
+
+header nav a:hover {
+  text-decoration: underline;
+}
+
+.menu-icon {
+  display: none;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+}
+
+.logo img {
+  width: 140px;
+  margin-right: 8px;
+}
+
+/* Main */
+main {
+  display: flex;
+  height: 78vh;
+}
+
+.form-section {
+  flex: 1;
+  background-color: beige;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 60px;
+
+
+}
+
+.form-section h2 {
+  margin-bottom: 20px;
+}
+
+form input {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  gap: 10px;
+
+}
+
+form button {
+  background: linear-gradient(to right, #2ecc71, #f1c40f);
+  border: none;
+  color: white;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 20px;
+  cursor: pointer;
+  width: 150px;
+  transition: 0.3s;
+  margin: 10px 10px 0 0;
+}
+
+form button:hover {
+  opacity: 0.9;
+}
+
+.terms {
+  font-size: 0.8rem;
+  color: #666;
+  gap: 10px;
+}
+
+.terms a {
+  color: #2ecc71;
+  text-decoration: none;
+}
+
+/* Imagem lateral */
+.image-section {
+  flex: 1;
+  background-color:  #FECA54;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
+.image-section img {
+  width: 70%;
+  max-width: 550px;
+}
+
+/* Rodapé */
+footer {
+  background-color: #7098bb;
+  color: white;
+  text-align: center;
+  padding: 40px 20px;
+  height: 15vh;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-logo img {
+  width: 70px;
+  margin-right: 10px;
+}
+
+.footer-icons i {
+  margin: 10px;
+  cursor: pointer;
+}
+
+.love {
+  margin-top: 10px;
+  font-style: italic;
+}
+
+.rights {
+  font-size: 0.8rem;
+  color: #ccc;
+  margin-top: 15px;
+}
+
+/* Responsividade */
+@media (max-width: 900px) {
+  main {
+    flex-direction: column;
+  }
+
+  .image-section {
+    display: none;
+  }
+}
+.alert-error {
+  background: #ffe0e0;
+  border-left: 4px solid #ff4d4d;
+  color: #a30000;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+}

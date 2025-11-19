@@ -2,10 +2,10 @@
 
 /**
  * Arquivo de Rotas Web (routes/web.php)
- * 
+ *
  * Este arquivo define todas as rotas HTTP da aplicação.
  * As rotas mapeiam URLs para Controllers/métodos específicos.
- * 
+ *
  * ESTRUTURA:
  * - Rotas Públicas: Acessíveis por qualquer visitante
  * - Rotas de Autenticação: Login e Logout
@@ -20,7 +20,7 @@ use App\Http\Controllers\Admin\UsuarioController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Admin\DashboardController;
-
+use App\Http\Controllers\AuthController;
 /*
 |--------------------------------------------------------------------------
 | ROTAS PÚBLICAS
@@ -62,6 +62,9 @@ Route::get('login', [LoginController::class, 'mostrarForm'])->name('login');
 // Método: POST
 Route::post('login', [LoginController::class, 'login']);
 
+Route::get('/login', [AuthController::class, 'showLogin'])->name('login.form');
+Route::post('/login', [AuthController::class, 'login'])->name('login');
+
 // Realiza logout do usuário
 // URL: http://localhost:8000/logout
 // Método: POST (por segurança, logout deve ser POST)
@@ -85,15 +88,15 @@ Route::middleware(['auth', 'eh.admin'])      // Middlewares de proteção
     ->prefix('admin')                        // Prefixo: /admin
     ->name('admin.')                         // Prefixo de nomes: admin.
     ->group(function() {
-        
+
         // Dashboard: Página inicial do painel administrativo
         // URL: http://localhost:8000/admin
         // Nome: admin.dashboard
         Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
-        
+
         /*
          * RESOURCE: Tipos de Notícia
-         * 
+         *
          * Route::resource() cria automaticamente 7 rotas CRUD:
          * - GET    /admin/tipos-noticia           -> index   (lista todos)
          * - GET    /admin/tipos-noticia/create    -> create  (form criar)
@@ -102,25 +105,25 @@ Route::middleware(['auth', 'eh.admin'])      // Middlewares de proteção
          * - GET    /admin/tipos-noticia/{id}/edit -> edit    (form editar)
          * - PUT    /admin/tipos-noticia/{id}      -> update  (atualizar)
          * - DELETE /admin/tipos-noticia/{id}      -> destroy (deletar)
-         * 
+         *
          * IMPORTANTE: ->parameters(['tipos-noticia' => 'tipos_noticia'])
          * Define que o parâmetro da rota será $tipos_noticia (singular)
          * Necessário porque Laravel singulariza errado nomes compostos.
          */
         Route::resource('tipos-noticia', TipoNoticiaController::class)
             ->parameters(['tipos-noticia' => 'tipos_noticia']);
-        
+
         /*
          * RESOURCE: Notícias
-         * 
+         *
          * Cria as 7 rotas CRUD padrão para gerenciar notícias.
          * URLs: /admin/noticias, /admin/noticias/create, etc.
          */
         Route::resource('noticias', NoticiaController::class);
-        
+
         /*
          * RESOURCE: Usuários
-         * 
+         *
          * Cria 6 rotas CRUD (exclui 'show' que não usamos).
          * ->except(['show']) = não cria a rota de visualização individual
          * URLs: /admin/usuarios, /admin/usuarios/create, etc.
