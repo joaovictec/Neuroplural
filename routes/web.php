@@ -34,8 +34,9 @@ use App\Http\Controllers\AuthController;
 // Página inicial: Lista de notícias publicadas
 // URL: http://localhost:8000/
 // Nome: 'home'
-Route::get('/', [PublicoController::class, 'index'])->name('home');
-
+Route::get('/', function () {
+    return view('publico.home');
+})->name('home');
 // Página de detalhes de uma notícia específica
 // URL: http://localhost:8000/noticia/titulo-da-noticia-abc12
 // {slug} = parâmetro dinâmico (ex: "minha-noticia")

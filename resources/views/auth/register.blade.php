@@ -7,7 +7,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NeuroPlural - Login</title>
+  <title>NeuroPlural - cadastrar</title>
 
   <!-- CSS Laravel -->
   <link rel="stylesheet" href="{{ asset('css/login.css') }}">
@@ -34,7 +34,7 @@
 
     <nav>
       <a href="#">Sobre Nós</a>
-      <a href="#">Início</a>
+      <a href="{{ route('home') }}">Início</a>
       <a href="/login">Login</a>
     </nav>
 

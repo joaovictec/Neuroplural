@@ -1,53 +1,114 @@
-@extends('layouts.app')
+@extends('layouts.clean')
 
-@section('title','Início')
+@section('title', 'Login - NeuroPlural')
 
 @section('content')
-    <div style="margin-bottom: 2rem;">
-        <h2 style="font-size: 2rem; font-weight: 700; color: var(--text-dark); margin: 0 0 0.5rem 0;">Últimas Notícias</h2>
-        <p style="color: var(--text-gray); margin: 0;">Fique por dentro das principais notícias</p>
+   <html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NeuroPlural - Login</title>
+
+  <!-- CSS Laravel -->
+  <link rel="stylesheet" href="{{ asset('css/login.css') }}">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+  <!-- Barra superior -->
+  <div class="top-bar">
+    <p>Contato: (00) 112344321 | NeuroPlural@gmail.com</p>
+
+    <div class="social-icons">
+      <i class="fab fa-facebook-f"></i>
+      <i class="fab fa-linkedin-in"></i>
+      <i class="fab fa-instagram"></i>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <div class="menu-icon"><i class="fas fa-bars"></i></div>
+
+    <nav>
+      <a href="#">Sobre Nós</a>
+      <a href="#">Início</a>
+   <a href="/register">Criar conta</a>
+    </nav>
+
+    <div class="logo">
+      <img src="{{ asset('assets/Logo_NeuroPlural__1_-removebg-preview.png') }}" alt="Logo NeuroPlural">
+
+    </div>
+  </header>
+
+  <!-- Container principal -->
+  <main>
+
+    <section class="form-section">
+      <h2>Login</h2>
+
+      {{-- ALERTA DE ERRO LARAVEL --}}
+      @if($errors->any())
+        <div class="alert-error">
+          {{ $errors->first() }}
+        </div>
+      @endif
+
+      {{-- FORMULÁRIO CONECTADO AO BACKEND --}}
+      <form method="POST" action="{{ route('login') }}">
+        @csrf
+
+        <input
+          type="email"
+          name="email"
+          placeholder="E-mail"
+          value="{{ old('email') }}"
+          required
+        >
+
+        <input
+          type="password"
+          name="password"
+          placeholder="Senha"
+          required
+        >
+
+        <p class="terms">
+          <a href="#">Esqueci a senha</a>.
+        </p>
+
+        <button type="submit">Logar</button>
+      </form>
+    </section>
+
+    <section class="image-section">
+      <img src="{{ asset('assets/image 2-Photoroom.png') }}" alt="cabeça com peças">
+    </section>
+
+  </main>
+
+  <!-- Rodapé -->
+  <footer>
+
+    <div class="footer-logo">
+        <img src="{{ asset('assets/Logo_NeuroPlural__1_-removebg-preview.png') }}" alt="Logo NeuroPlural">
     </div>
 
-    @if($noticias->count())
-        <div class="news-grid">
-            @foreach($noticias as $noticia)
-                <article class="news-card">
-                    <div class="news-card-content">
-                        <h3 class="news-card-title">
-                            <a href="{{ route('noticia.show', $noticia->slug) }}">{{ $noticia->titulo }}</a>
-                        </h3>
-                        
-                        <p class="news-card-excerpt">
-                            {{ $noticia->resumo ?? \Illuminate\Support\Str::limit(strip_tags($noticia->conteudo), 150) }}
-                        </p>
-                        
-                        <div class="news-card-meta">
-                            <div>
-                                @if($noticia->tipo)
-                                    <span class="news-badge">{{ $noticia->tipo->nome }}</span>
-                                @endif
-                            </div>
-                            <div>
-                                <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" style="display: inline; vertical-align: middle; margin-right: 4px;">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
-                                </svg>
-                                {{ $noticia->updated_at->format('d/m/Y') }}
-                            </div>
-                        </div>
-                    </div>
-                </article>
-            @endforeach
-        </div>
+    <p>
+      NeuroPlural é uma plataforma dedicada a promover a compreensão e o apoio a pessoas com TDAH e suas famílias.
+    </p>
 
-        <div style="margin-top: 3rem;">
-            {{ $noticias->links() }}
-        </div>
-    @else
-        <div style="text-align: center; padding: 4rem 2rem; background: var(--bg-white); border-radius: 8px;">
-            <svg width="64" height="64" viewBox="0 0 20 20" fill="var(--text-light)" style="margin-bottom: 1rem;">
-                <path fill-rule="evenodd" d="M2 5a2 2 0 012-2h8a2 2 0 012 2v10a2 2 0 002 2H4a2 2 0 01-2-2V5zm3 1h6v4H5V6zm6 6H5v2h6v-2z" clip-rule="evenodd"/>
-            </svg>
-            <p style="color: var(--text-gray); font-size: 1.125rem;">Nenhuma notícia publicada no momento.</p>
-        </div>
-    @endif
+    <p class="love">Feito com amor para uma educação mais inclusiva.</p>
+
+    <p class="rights">© 2025 NeuroPlural — Esta página é apenas informativa.</p>
+
+  </footer>
+
+</body>
+</html>
+
 @endsection

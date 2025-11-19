@@ -35,7 +35,7 @@
 
     <nav>
       <a href="#">Sobre Nós</a>
-      <a href="#">Início</a>
+      <a href="{{ route('home') }}">Início</a>
    <a href="/register">Criar conta</a>
     </nav>
 
