@@ -40,7 +40,8 @@
     </nav>
 
     <div class="logo">
-      <img src="{{ asset('assets/logo.png') }}" alt="Logo NeuroPlural">
+      <img src="{{ asset('assets/Logo_NeuroPlural__1_-removebg-preview.png') }}" alt="Logo NeuroPlural">
+
     </div>
   </header>
 
@@ -85,7 +86,7 @@
     </section>
 
     <section class="image-section">
-      <img src="{{ asset('assets/image.png') }}" alt="Imagem cabeça com peças">
+      <img src="{{ asset('assets/image 2-Photoroom.png') }}" alt="cabeça com peças">
     </section>
 
   </main>
@@ -94,7 +95,7 @@
   <footer>
 
     <div class="footer-logo">
-      <img src="{{ asset('assets/logo.png') }}" alt="Logo NeuroPlural">
+        <img src="{{ asset('assets/Logo_NeuroPlural__1_-removebg-preview.png') }}" alt="Logo NeuroPlural">
     </div>
 
     <p>
