@@ -147,3 +147,11 @@ Route::middleware(['auth', 'eh.admin'])      // Middlewares de proteção
 |
 */
 
+// VIEW de cadastro
+Route::get('/register', function() {
+    return view('auth.register');
+})->name('auth.register.view');
+
+// PROCESSAR cadastro
+Route::post('/register', [App\Http\Controllers\AuthController::class, 'register'])
+    ->name('register.perform');

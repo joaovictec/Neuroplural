@@ -1,9 +1,9 @@
 @extends('layouts.clean')
 
-@section('title', 'Login - NeuroPlural')
+@section('title', 'Cadastro - NeuroPlural')
 
 @section('content')
-   <html lang="pt-br">
+ <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,7 +17,6 @@
 </head>
 
 <body>
-
   <!-- Barra superior -->
   <div class="top-bar">
     <p>Contato: (00) 112344321 | NeuroPlural@gmail.com</p>
@@ -36,12 +35,11 @@
     <nav>
       <a href="#">Sobre Nós</a>
       <a href="#">Início</a>
-   <a href="/register">Criar conta</a>
+      <a href="/login">Login</a>
     </nav>
 
     <div class="logo">
       <img src="{{ asset('assets/Logo_NeuroPlural__1_-removebg-preview.png') }}" alt="Logo NeuroPlural">
-
     </div>
   </header>
 
@@ -49,18 +47,26 @@
   <main>
 
     <section class="form-section">
-      <h2>Login</h2>
+      <h2>Cadastro</h2>
 
-      {{-- ALERTA DE ERRO LARAVEL --}}
+      {{-- Mensagem de erro --}}
       @if($errors->any())
         <div class="alert-error">
           {{ $errors->first() }}
         </div>
       @endif
 
-      {{-- FORMULÁRIO CONECTADO AO BACKEND --}}
-      <form method="POST" action="{{ route('login') }}">
+      {{-- FORMULÁRIO --}}
+      <form method="POST" action="{{ route('register.perform') }}">
         @csrf
+
+        <input
+          type="text"
+          name="nome"
+          placeholder="Nome completo"
+          value="{{ old('nome') }}"
+          required
+        >
 
         <input
           type="email"
@@ -77,11 +83,7 @@
           required
         >
 
-        <p class="terms">
-          <a href="#">Esqueci a senha</a>.
-        </p>
-
-        <button type="submit">Logar</button>
+        <button type="submit">Cadastrar</button>
       </form>
     </section>
 
@@ -107,8 +109,5 @@
     <p class="rights">© 2025 NeuroPlural — Esta página é apenas informativa.</p>
 
   </footer>
-
-</body>
-</html>
 
 @endsection

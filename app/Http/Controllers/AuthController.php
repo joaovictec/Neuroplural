@@ -30,4 +30,27 @@ class AuthController extends Controller
 {
     return view('auth.login'); // <- seu arquivo está aqui
 }
+
+
+public function register(Request $request)
+{
+    $request->validate([
+        'nome' => 'required|min:3',
+        'email' => 'required|email|unique:usuarios,email',
+        'password' => 'required|min:6'
+    ]);
+
+    DB::table('usuarios')->insert([
+        'nome' => $request->nome,
+        'email' => $request->email,
+        'senha' => Hash::make($request->password),
+        'created_at' => now(),
+        'updated_at' => now()
+    ]);
+
+    return redirect()->route('auth.login.view')
+                     ->with('success', 'Conta criada com sucesso! Faça login.');
 }
+
+}
+
