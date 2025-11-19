@@ -62,7 +62,7 @@
 
         <input
           type="text"
-          name="nome"
+          name="name"
           placeholder="Nome completo"
           value="{{ old('nome') }}"
           required

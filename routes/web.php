@@ -155,3 +155,11 @@ Route::get('/register', function() {
 // PROCESSAR cadastro
 Route::post('/register', [App\Http\Controllers\AuthController::class, 'register'])
     ->name('register.perform');
+
+
+// Login
+Route::get('/login', function() {
+    return view('auth.login');
+})->name('auth.login.view');
+
+Route::post('/login', [AuthController::class, 'login'])->name('login');

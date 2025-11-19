@@ -18,7 +18,7 @@ class AuthController extends Controller
 
         $user = DB::table('usuarios')->where('email', $request->email)->first();
 
-        if (!$user || !Hash::check($request->password, $user->senha)) {
+        if (!$user || !Hash::check($request->password, $user->password)) {
             return back()->withErrors(['email' => 'Credenciais inválidas']);
         }
 
@@ -35,15 +35,15 @@ class AuthController extends Controller
 public function register(Request $request)
 {
     $request->validate([
-        'nome' => 'required|min:3',
+        'name' => 'required|min:3',
         'email' => 'required|email|unique:usuarios,email',
         'password' => 'required|min:6'
     ]);
 
     DB::table('usuarios')->insert([
-        'nome' => $request->nome,
+        'name' => $request->name,
         'email' => $request->email,
-        'senha' => Hash::make($request->password),
+        'password' => Hash::make($request->password),
         'created_at' => now(),
         'updated_at' => now()
     ]);
