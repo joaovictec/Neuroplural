@@ -1,0 +1,224 @@
+/* Fundo */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#title_inicio {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.bg-gradient {
+    min-height: 100vh;
+    background: linear-gradient(to bottom right, #1aa7a1, #ff9966, #ffcc66);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Logo */
+.top {
+    margin-top: 40px;
+}
+
+.logo {
+    width: 150px;
+}
+
+/* Textos Principais */
+.welcome-title {
+    margin-top: 30px;
+    font-size: 3rem;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #ffffff;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: #000 2px 3px 20px
+}
+
+.main-title {
+    background: white;
+    color: #193a6a;
+    display: inline-block;
+    padding: 14px 40px;
+    border-radius: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2.5rem;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.subtitle {
+    margin-top: 10px;
+    color: #ffffff;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+/* Cards container */
+.cards {
+    margin-top: 60px;
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* -------------------------------------- */
+/* ESTILO DO CARD (REPLICADO DA IMAGEM) */
+/* -------------------------------------- */
+
+/* Card */
+.card {
+    background: #ffffff;
+    /* Tamanho fixo para melhor controle de layout */
+    width: 380px;
+    height: 400px;
+
+    /* Espaçamento interno (padding) e sombra suave */
+    padding: 40px 30px;
+    border-radius: 18px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+
+    /* Configuração Flexbox */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    /* Espaço entre os elementos filhos (ícone, título, texto, link) */
+    gap: 20px;
+
+    text-decoration: none;
+    color: inherit;
+    transition: 0.3s;
+    /* Necessário para posicionar o círculo::before e o ícone */
+    position: relative;
+}
+
+/* Círculo Sutil de Fundo (NOVO: Para replicar o design da imagem) */
+.icon-bg {
+    /* Dimensões do círculo de fundo na imagem */
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+
+    /* Cor de fundo pastel e borda suave */
+    background-color: #f0fdfc; /* Exemplo de cor pastel */
+    border: 1px solid #d0f7f5; /* Borda suave */
+
+    /* Centraliza o ícone dentro do círculo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* Configurações de Empilhamento */
+    position: relative;
+    /* Colocado sobre o ::before, mas abaixo do .icon i */
+    z-index: 5;
+}
+
+/* Ícone dentro do Círculo */
+.card .icon i {
+    /* Cor do ícone (o verde-azulado da imagem) */
+    color: #1aa7a1;
+    /* Tamanho do ícone (maior, como na imagem) */
+    font-size: 4rem;
+    /* Opcional, para garantir que o ícone fique na frente de tudo */
+    position: relative;
+    z-index: 10;
+}
+
+
+/* Título Principal do Card */
+.card h3 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #193a6a; /* Cor principal de texto (azul escuro) */
+    margin-top: 10px;
+}
+
+/* Texto Descritivo */
+.card p {
+    font-size: 1rem;
+    color: #6a6a6a; /* Cor de texto cinza (mais suave que o preto) */
+    text-align: center;
+    line-height: 1.5;
+    max-width: 85%;
+    margin: 0 auto;
+}
+
+/* Link de Acesso (Substitui o botão .btn) */
+.acessar-link {
+    display: inline-block;
+    color: #1aa7a1; /* Cor verde-azulada do link */
+    font-weight: bold;
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: color 0.2s;
+    margin-top: 10px; /* Garante espaço após o parágrafo */
+}
+
+.acessar-link:hover {
+    text-decoration: underline;
+    color: #158b88;
+}
+
+/* REMOVIDO: O círculo de hover verde antigo foi removido para replicar a imagem */
+.card::before {
+    /* Estas propriedades são do círculo antigo e foram removidas */
+    display: none;
+}
+/* O bloco .card:hover::before não é mais necessário, mas será mantido aqui desabilitado
+   para não causar erros se o HTML antigo ainda estiver por perto:
+*/
+/*
+.card:hover::before {
+    content: "";
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    background: #2ecc71;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+    transition: 0.3s ease;
+    display: none;
+}
+*/
+
+
+/* Efeito de elevação no hover (Mantido) */
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 24px rgba(0,0,0,0.15);
+    cursor: pointer;
+}
+
+/* O resto do CSS original */
+
+/* Botão (Escondido, pois usamos .acessar-link agora) */
+.btn {
+    display: none;
+}
+
+/* Link inferior */
+.about-tdah {
+    margin-top: 40px;
+    color: white;
+    font-size: 1.5rem;
+    text-decoration: underline;
+}
+
+.alinhar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

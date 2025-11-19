@@ -6,18 +6,10 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-/**
- * Controller LoginController
- * 
- * Responsável pela autenticação de usuários no sistema.
- * Exibe o formulário de login e processa as credenciais.
- */
 class LoginController extends Controller
 {
     /**
-     * Exibe o formulário de login
-     * 
-     * @return \Illuminate\View\View
+     * Exibe o formulário de login.
      */
     public function mostrarForm()
     {
@@ -25,35 +17,26 @@ class LoginController extends Controller
     }
 
     /**
-     * Processa a tentativa de login
-     * 
-     * Valida as credenciais (email e senha) e tenta autenticar o usuário.
-     * Se bem-sucedido, cria uma sessão e redireciona para o painel administrativo.
-     * Se falhar, retorna ao formulário com mensagem de erro.
-     * 
-     * @param Request $request
-     * @return \Illuminate\Http\RedirectResponse
+     * Processa a tentativa de login.
      */
     public function login(Request $request)
     {
-        // Valida os dados do formulário
-        $data = $request->validate([
+        // Validação simples (opcional mas recomendado)
+        $request->validate([
             'email' => 'required|email',
-            'password' => 'required|string',
+            'password' => 'required'
         ]);
 
-        // Tenta autenticar com email e senha
-        if (Auth::attempt(['email' => $data['email'], 'password' => $data['password']])) {
-            // Regenera a sessão por segurança (previne session fixation)
+        // Tenta autenticar
+        $credentials = $request->only('email', 'password');
+
+        if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            
-            // Redireciona para o dashboard administrativo
-            return redirect()->route('admin.dashboard');
+            return redirect()->route('dashboard'); // rota protegida
         }
 
-        // Se falhou, retorna ao formulário com erro
-        return back()
-            ->withErrors(['email' => 'Credenciais inválidas. Verifique seu email e senha.'])
-            ->withInput();  // Mantém o email preenchido (não a senha)
+        return back()->withErrors([
+            'email' => 'Credenciais inválidas.',
+        ]);
     }
 }
