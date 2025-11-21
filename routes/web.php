@@ -85,3 +85,8 @@ Route::middleware(['auth', 'eh.admin'])
 
         Route::resource('usuarios', UsuarioController::class)->except(['show']);
     });
+Route::middleware('auth')->group(function () {
+    Route::get('/aluno/dashboard', function () {
+        return view('aluno.dashboard');
+    })->name('aluno.dashboard');
+});

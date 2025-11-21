@@ -1,0 +1,173 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background: #F7F7F7;
+    color: #333;
+}
+
+/* HEADER */
+.top-bar {
+    background: #FFA774;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    color: white;
+}
+
+.top-bar a {
+    margin-left: 20px;
+    color: white;
+    font-weight: 500;
+}
+
+.logo {
+    height: 45px;
+}
+
+.user-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.profile-pic {
+    width: 45px;
+    height: 45px;
+    background: #ccc;
+    border-radius: 50%;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-name {
+    font-weight: bold;
+}
+
+.role {
+    font-size: 0.85rem;
+    opacity: 0.8;
+}
+
+/* MAIN */
+.dashboard {
+    padding: 40px 80px;
+}
+
+.dashboard h1 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    text-align: center;
+    font-size: 1rem;
+    opacity: 0.7;
+    margin-bottom: 40px;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 25px;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0px 2px 6px rgba(0,0,0,0.08);
+}
+
+.progress-wrapper {
+    width: 100%;
+    height: 12px;
+    background: #eee;
+    border-radius: 20px;
+    margin: 10px 0;
+}
+
+.progress-bar {
+    width: 68%;
+    height: 100%;
+    background: #4CAF50;
+    border-radius: 20px;
+}
+
+.percent {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #4CAF50;
+}
+
+.actions {
+    display: flex;
+    justify-content: space-between;
+    margin: 40px 0;
+}
+
+.action-btn {
+    width: 22%;
+    padding: 18px;
+    background: white;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.recommended h2 {
+    margin-bottom: 20px;
+    font-size: 1.6rem;
+}
+
+.recommend-grid {
+    display: flex;
+    gap: 20px;
+}
+
+.rec-card {
+    background: white;
+    padding: 25px;
+    width: 30%;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.rec-card button {
+    margin-top: 15px;
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    background: #ddd;
+    border: none;
+    cursor: pointer;
+}
+
+/* FOOTER */
+.footer {
+    margin-top: 60px;
+    background: #133B5C;
+    color: white;
+    text-align: center;
+    padding: 40px;
+}
+
+.footer-logo {
+    height: 50px;
+    margin-bottom: 20px;
+}
+
+.copy {
+    margin-top: 20px;
+    opacity: 0.7;
+}

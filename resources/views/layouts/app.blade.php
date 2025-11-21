@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@yield('title', 'Portal de Notícias')</title>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    @livewireStyles
 </head>
 <body>
     <header class="site-header">
@@ -51,7 +52,8 @@
     <footer class="site-footer">
         <p>&copy; {{ date('Y') }} Portal de Notícias - Desenvolvido para fins educacionais</p>
     </footer>
-    
+
     <script src="{{ asset('js/app.js') }}"></script>
+    @livewireScripts
 </body>
 </html>

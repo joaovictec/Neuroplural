@@ -29,7 +29,8 @@
            <div class="alinhar">
                 <div class="cards">
 
-                    <a href="#" class="card">
+                    <a href="{{ route('aluno.dashboard') }}" class="card">
+
 
                         <div class="icon-bg">
                             <div class="icon">
