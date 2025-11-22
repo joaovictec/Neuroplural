@@ -1,0 +1,107 @@
+/* --- VARIÁVEIS DE COR GERAIS --- */
+:root {
+    --color-background-light: #f8f8f8;
+    --color-text-dark: #333;
+    --color-text-light: #777;
+    --color-amarelo-badge: #f0ad4e; /* Laranja/Amarelo da referência */
+}
+
+/* --- Estilos da Página Biblioteca de Recursos --- */
+
+.professor-recursos-container {
+    padding: 30px 50px;
+    background-color: var(--color-background-light);
+    min-height: 85vh;
+}
+
+.page-title-recursos {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--color-text-dark);
+    margin-bottom: 5px;
+}
+
+.page-subtitle-recursos {
+    font-size: 16px;
+    color: var(--color-text-light);
+    margin-bottom: 30px;
+}
+
+
+/* --- Grid e Cartões de Recursos --- */
+
+.recursos-grid {
+    display: grid;
+    /* 4 colunas é o ideal para a referência */
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+.recurso-card {
+    background-color: white;
+    border-radius: 15px; /* Cantos arredondados, seguindo o novo padrão */
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    min-height: 220px;
+}
+
+/* --- Ícone de Cabeçalho (O Círculo Colorido) --- */
+
+.icon-header {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin: -50px auto 15px auto; /* Margem negativa para 'puxar' o círculo para fora do card */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para destacar */
+}
+
+.icon-header i {
+    font-size: 28px;
+    color: white; /* Ícone branco */
+}
+
+/* Cores específicas dos ícones (Baseado na Referência image_86d6e0.png) */
+.icon-plano { background-color: #5bc0de; }      /* Azul/Ciano */
+.icon-atividades { background-color: #5cb85c; }  /* Verde */
+.icon-avaliacao { background-color: #f0ad4e; }   /* Laranja/Amarelo */
+.icon-artigos { background-color: #d9534f; }     /* Vermelho/Rosa */
+.icon-videos { background-color: #9c27b0; }      /* Roxo (chute baseado no 'Videos Educativos' no ref) */
+.icon-guias { background-color: #1976d2; }       /* Azul Escuro */
+
+
+.recurso-nome {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--color-text-dark);
+    margin-bottom: 5px;
+}
+
+.recurso-descricao {
+    font-size: 14px;
+    color: var(--color-text-light);
+    flex-grow: 1;
+    margin-bottom: 15px;
+    line-height: 1.4;
+}
+
+/* --- Badge de Recursos (Onde fica o número amarelo) --- */
+
+.recurso-badge {
+    background-color: var(--color-amarelo-badge);
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    /* Posição para ficar na parte de baixo do card */
+    margin-top: auto;
+    margin-bottom: 5px;
+}

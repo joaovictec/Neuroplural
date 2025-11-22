@@ -10,6 +10,7 @@ use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DicaController;
+use App\Http\Controllers\ProfessorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -116,3 +117,21 @@ Route::middleware(['auth', 'eh.admin'])
 
      Route::view('/gestao', 'aluno.gestao')
     ->name('aluno.gestao');
+
+    // Defina um grupo de rotas com prefixo 'professor' se for ter muitas rotas
+Route::prefix('professor')->name('professor.')->group(function () {
+
+    // Rota para o Dashboard Principal do Professor
+    Route::get('/dashboard', [App\Http\Controllers\ProfessorController::class, 'dashboard'])
+        ->name('dashboard');
+
+    // Rota simples para a tela 'Sobre Mim' do Professor
+    Route::view('/sobre-mim', 'professor.sobre-mim')
+        ->name('sobre-mim');
+
+    // ... outras rotas do professor (turmas, recursos, etc.)
+});
+  Route::view('/minhasTurmas', 'professor.minhasTurmas')
+    ->name('professor.minhasTurmas');
+    Route::view('/recursos', 'professor.recursos')
+    ->name('professor.recursos');

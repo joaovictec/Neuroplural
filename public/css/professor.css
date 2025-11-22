@@ -1,0 +1,291 @@
+/* ================================================= */
+/* 0. VARIÁVEIS DE COR NEUROPLURAL & RESET */
+/* ================================================= */
+:root {
+    --color-neuroplural-orange: #ff9800; /* Laranja principal */
+    --color-text-dark: #333;
+    --color-text-light: #777;
+    --color-background-light: #f8f8f8; /* Fundo do Dashboard */
+    --color-card-bg: white;
+    --color-info-blue: #1976d2; /* Azul para links/detalhes */
+    --color-footer-bg: #2f4858;
+    --header-cor : #20AB9D;
+}
+
+/* ================================================= */
+/* 1. HEADER E NAVEGAÇÃO SUPERIOR */
+/* ================================================= */
+
+.professor-header {
+    background-color: var(--header-cor);
+    padding: 10px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* Menu Voltar | Saber Mais | Início */
+.top-nav-professor {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.top-nav-professor .nav-item {
+    color: white; /* Texto Branco */
+    font-weight: 500;
+    padding: 5px 0;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+/* Perfil do Professor */
+.user-info-professor {
+    display: flex;
+    align-items: center;
+    color: var(--color-text-dark);
+    font-weight: 500;
+}
+
+.professor-header .fas.fa-bell {
+    color: white; /* Ícone do sino branco */
+    font-size: 18px;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+.user-avatar-professor {
+    /* Círculo com borda verde */
+    background-color: #e6e6e6;
+    border: 2px solid #5cb85c;
+    border-radius: 50%;
+    padding: 3px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.user-avatar-professor i {
+    color: #5cb85c; /* Ícone da pessoa em Verde/Ciano */
+    font-size: 16px;
+}
+
+span.nome-professor {
+    color: var(--color-text-dark); /* Nome do professor na cor padrão do texto */
+    margin-left: 10px;
+}
+
+
+/* ================================================= */
+/* 2. DASHBOARD BODY E TÍTULOS */
+/* ================================================= */
+
+.professor-dashboard-container {
+    background-color: var(--color-background-light); /* Fundo cinza suave */
+    padding: 30px 50px;
+    min-height: 80vh;
+}
+
+.page-title-professor {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--color-text-dark);
+    margin-bottom: 5px;
+}
+
+.page-subtitle-professor {
+    font-size: 16px;
+    color: var(--color-text-light);
+    margin-bottom: 30px;
+}
+
+.card-base {
+    background-color: var(--color-card-bg);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+
+/* ================================================= */
+/* 3. ESTATÍSTICAS DE RESUMO (Stats Grid) */
+/* ================================================= */
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.stat-card {
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    min-height: 120px;
+    color: white; /* Cor do texto no card colorido */
+}
+
+.stat-card-title {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Ícone em Círculo Colorido (CRUCIAL PARA O VISUAL) */
+.stat-card-title .icon-circle {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.stat-card-title .icon-circle i {
+    color: white; /* Ícone branco */
+    font-size: 14px;
+}
+
+.stat-number {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.stat-info {
+    font-size: 12px;
+    opacity: 0.8;
+}
+
+/* CORES DOS CARDS (Baseado na referência Captura de tela 2025-11-22 104100.png) */
+.stat-turmas {
+    background-color: #5cb85c; /* Verde */
+}
+.stat-recursos {
+    background-color: #f0ad4e; /* Laranja */
+}
+.stat-aulas {
+    background-color: #5bc0de; /* Azul/Ciano */
+}
+.stat-projetos {
+    background-color: #d9534f; /* Rosa/Vermelho */
+}
+/* Fundo do círculo é mais claro que o fundo do card */
+.stat-card .icon-circle {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* ================================================= */
+/* 4. SEÇÃO DIVIDIDA (Alunos por Turma / Atividades) */
+/* ================================================= */
+
+.dashboard-split-section {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.card-base-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--color-text-dark);
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+/* Pills de Turma */
+.turmas-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.turma-pill {
+    background-color: #f0f0f0;
+    color: var(--color-text-dark);
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* Próximas Atividades (Cada item é um card levemente cinza) */
+.atividade-proxima {
+    background-color: #f7f7f7;
+    border-radius: 6px;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    border: 1px solid #eee;
+}
+
+.atividade-proxima-data {
+    font-size: 11px;
+    font-weight: 700;
+    color: #999;
+}
+
+.atividade-proxima-nome {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--color-text-dark);
+}
+
+.atividade-proxima-turma {
+    font-size: 13px;
+    color: var(--color-info-blue);
+}
+
+/* ================================================= */
+/* 5. TABELA (Alunos que Precisam de Atenção) */
+/* ================================================= */
+
+.alunos-atencao-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.alunos-atencao-table th, .alunos-atencao-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 14px;
+}
+
+.alunos-atencao-table th {
+    font-weight: 600;
+    color: var(--color-text-dark);
+}
+
+/* Cores do Status */
+.status-alert {
+    color: #d9534f; /* Vermelho/Rosa escuro */
+    font-weight: 500;
+}
+.status-warning {
+    color: #f0ad4e; /* Laranja */
+    font-weight: 500;
+}
+.status-success {
+    color: #5cb85c; /* Verde */
+    font-weight: 500;
+}
+
+/* Link Ver Detalhes */
+.action-details {
+    color: var(--color-info-blue);
+    text-decoration: none;
+    font-weight: 500;
+    transition: opacity 0.2s;
+}

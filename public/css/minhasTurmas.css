@@ -1,0 +1,157 @@
+/* --- VARIÁVEIS DE COR GERAIS (Garantindo acesso às cores) --- */
+:root {
+    --color-background-light: #f8f8f8;
+    --color-text-dark: #333;
+    --color-text-light: #777;
+    --color-link-blue: #1976d2;
+}
+
+/* --- Estilos da Página Minhas Turmas --- */
+
+.professor-turmas-container {
+    padding: 30px 50px;
+    background-color: var(--color-background-light);
+    min-height: 85vh;
+}
+
+.page-title-turmas {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--color-text-dark);
+    margin-bottom: 20px;
+}
+
+/* Botão Nova Turma (Verde) */
+.turmas-actions {
+    margin-bottom: 30px;
+}
+
+.btn-nova-turma {
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn-nova-turma i {
+    margin-right: 5px;
+}
+
+
+/* --- Grid dos Cartões de Turma --- */
+
+.turmas-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+.turma-card {
+    background-color: white; /* Fundo branco para o corpo do card */
+    border-radius: 15px; /* Mais arredondado */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 250px;
+    overflow: hidden; /* Importante para o header com border-radius */
+}
+
+/* Novo estilo para o header, que agora é uma faixa colorida no topo */
+.turma-header {
+    /* Removido padding para deixar o padding total no card */
+    padding: 20px; /* Padding interno do header */
+    margin-bottom: 0; /* Remove margem inferior para grudar no conteúdo */
+    border-bottom: none; /* Remove borda inferior */
+    color: white; /* Texto do header é branco */
+    /* Estas cores serão sobrescritas pelas classes específicas de cor (vermelho, preto, etc.) */
+}
+
+.turma-nome {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.alunos-total {
+    font-size: 14px;
+    opacity: 0.9; /* Um pouco mais visível que antes */
+}
+
+/* Conteúdo das Estatísticas (abaixo do header) */
+.turma-stats {
+    flex-grow: 1;
+    padding: 15px 20px 0 20px; /* Padding para o conteúdo abaixo do header */
+    margin-bottom: 20px;
+    color: var(--color-text-dark); /* Texto das estatísticas mais escuro */
+}
+
+.stat-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Alinha ícone/texto à esquerda e número à direita */
+    font-size: 14px;
+    margin-bottom: 8px;
+    color: var(--color-text-dark); /* Cor principal do texto da estatística */
+}
+
+.stat-item i {
+    color: var(--color-text-light); /* Ícones mais sutis */
+    font-size: 14px;
+    margin-right: 8px; /* Espaço entre ícone e texto */
+}
+
+.stat-item span {
+    font-weight: 600; /* Número da estatística em negrito */
+    color: var(--color-link-blue); /* Cor mais clara para o número, como na ref */
+}
+
+/* Botão Gerenciar Turma (Fundo Branco, Texto da cor do card) */
+.btn-gerenciar {
+    background-color: #f0f0f0; /* Fundo cinza claro para o botão */
+    display: block;
+    width: calc(100% - 40px); /* Ocupa a largura total com padding */
+    margin: 10px 20px 20px 20px; /* Alinhamento e espaçamento */
+    padding: 12px 0; /* Mais padding vertical */
+    text-align: center;
+    border-radius: 8px; /* Mais arredondado */
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.2s;
+    border: none; /* Remove a borda se houver */
+}
+
+
+/* --- Cores dos Cartões (Apenas o Header muda de cor) --- */
+
+.turma-vermelho .turma-header {
+    background-color: #d9534f; /* Vermelho/Rosa */
+}
+.turma-vermelho .btn-gerenciar {
+    color: #d9534f;
+}
+
+.turma-preto .turma-header {
+    background-color: #343a40; /* Preto/Cinza Escuro */
+}
+.turma-preto .btn-gerenciar {
+    color: #343a40;
+}
+
+.turma-verde .turma-header {
+    background-color: #5cb85c; /* Verde */
+}
+.turma-verde .btn-gerenciar {
+    color: #5cb85c;
+}
+
+.turma-ciano .turma-header {
+    background-color: #5bc0de; /* Ciano/Azul Claro */
+}
+.turma-ciano .btn-gerenciar {
+    color: #5bc0de;
+}

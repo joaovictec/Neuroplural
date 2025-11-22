@@ -46,7 +46,7 @@
                         </span>
                     </a>
 
-                    <a href="#" class="card">
+                   <a href="{{ route('professor.dashboard') }}" class="card">
 
                         <div class="icon-bg">
                             <div class="icon">

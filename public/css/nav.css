@@ -1,0 +1,157 @@
+/* ================================================= */
+/* 1. LINHA DE LINKS DE NAVEGAÇÃO (Cards Coloridos Sólidos) */
+/* ================================================= */
+
+.nav-links-grid {
+    /* Grid de 4 colunas para os links coloridos */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-bottom: 30px; /* Separa esta linha da linha de estatísticas */
+}
+
+.nav-link-card {
+    border-radius: 8px;
+    padding: 25px;
+    text-align: center;
+    color: white; /* Texto sempre branco */
+    font-weight: 600;
+    font-size: 16px;
+    text-decoration: none; /* Remove sublinhado do link */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s;
+    min-height: 120px; /* Altura consistente */
+}
+
+.nav-link-card:hover {
+    transform: translateY(-3px);
+}
+
+.nav-link-card i {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+/* Cores Sólidas (Baseado na referência image_7c6d1f.png) */
+.nav-turmas {
+    background-color: #5bc0de; /* Azul/Ciano */
+}
+
+.nav-recursos {
+    background-color: #f0ad4e; /* Laranja */
+}
+
+.nav-aulas {
+    background-color: #5cb85c; /* Verde */
+}
+
+.nav-projetos {
+    background-color: #d9534f; /* Rosa/Vermelho */
+}
+
+/* ================================================= */
+/* 2. LINHA DE ESTATÍSTICAS (Ajustes para Fundo Branco) */
+/* (Usamos o .stats-grid já definido, mas ajustamos os cards) */
+/* ================================================= */
+
+.stats-grid {
+    /* Mantém o grid de 4 colunas */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.stat-card {
+    /* Resetando o fundo do card para branco e cor do texto para escuro */
+    background-color: var(--color-card-bg);
+    color: var(--color-text-dark); /* Texto escuro dentro do card branco */
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    display: grid; /* Usando grid para melhor alinhamento interno */
+    grid-template-areas:
+        "title icon"
+        "number icon"
+        "info .";
+    grid-template-columns: 3fr 1fr;
+    align-items: start;
+    min-height: 100px;
+    border: 1px solid #f0f0f0; /* Borda suave */
+    position: relative;
+}
+
+.stat-card-title {
+    grid-area: title;
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0;
+    padding: 0;
+    border-bottom: none; /* Remove borda que pode ter vindo de .card-base-title */
+}
+
+.stat-main-content {
+    grid-area: number;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 5px;
+}
+
+.stat-number {
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--color-text-dark);
+}
+
+.stat-info {
+    grid-area: info;
+    font-size: 12px;
+    color: var(--color-text-light);
+    margin-top: 5px;
+}
+
+/* Ícone de Círculo Colorido (CORREÇÃO para Fundo Branco) */
+.stat-card .icon-circle {
+    grid-area: icon;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute; /* Posicionamento absoluto no canto superior direito */
+    top: 20px;
+    right: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.stat-card .icon-circle i {
+    color: white; /* Ícone branco dentro do círculo */
+    font-size: 18px;
+}
+
+/* Cores dos Ícones (Baseado na referência Captura de tela 2025-11-22 104100.png) */
+.icon-circle-green {
+    background-color: #5cb85c;
+}
+.icon-circle-orange {
+    background-color: #f0ad4e;
+}
+.icon-circle-green-2 { /* Usado para o check (Atividades Concluídas) */
+    background-color: #5cb85c;
+}
+.icon-circle-pink {
+    background-color: #d9534f;
+}
+
+/* DICAS: Para as bordas coloridas dos cards de estatística (se desejar recriar o visual), use: */
+.stat-turmas-white { border-color: #5bc0de; }
+.stat-recursos-white { border-color: #f0ad4e; }
+.stat-aulas-white { border-color: #5cb85c; }
+.stat-projetos-white { border-color: #d9534f; }
