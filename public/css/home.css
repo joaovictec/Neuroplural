@@ -7,7 +7,7 @@
     /* Base da paleta: Verde-Água/Turquesa e Amarelo */
     --cor-primaria: #00bcd4; /* Turquesa/Ciano (Para ícones, botões) */
     --cor-acento: #ffc107; /* Amarelo Destaque (Para cards de atenção) */
-    --cor-fundo-header: linear-gradient(to right, #263d2e, #94eede); /* Gradiente do Hero */
+    --cor-fundo-header: linear-gradient(to right, #32523d, #c27c21); /* Gradiente do Hero */
 
     /* Neutros */
     --cor-fundo-claro: #f8f9fa; /* Fundo das seções (Off-white) */

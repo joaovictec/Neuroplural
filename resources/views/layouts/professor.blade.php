@@ -93,7 +93,7 @@
     <footer class="main-footer" style="background-color: var(--color-footer-bg); color: white; padding: 40px 0;">
         <div class="footer-content" style="text-align: center;">
             {{-- Conteúdo padrão do footer da sua aplicação --}}
-            <img src="{{ asset('assets/Logo_NeuroPlural__1_-removebg-preview.png') }}" alt="NeuroPlural" style="width: 70px; margin-bottom: 2px;">
+            <img src="{{ asset('assets/Logo_NeuroPlural__1_-removebg-preview.png') }}" alt="NeuroPlural" style="width: 70px; margin-bottom: 2px;filter: brightness(0) invert(1);">
             <p style="font-size: 15px; max-width: 600px; margin: 0 auto 10px;">
                 NeuroPlural é uma plataforma dedicada a promover a compreensão e o apoio a pessoas com TDAH e suas famílias, contribuindo para uma sociedade mais inclusiva.
                 <br>

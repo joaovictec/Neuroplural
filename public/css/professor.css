@@ -103,7 +103,7 @@ span.nome-professor {
 .professor-dashboard-container {
     background-color: var(--color-background-light); /* Fundo cinza suave */
     padding: 30px 50px;
-    min-height: 81vh;
+    height: 80vh;
 }
 
 .page-title-professor {
