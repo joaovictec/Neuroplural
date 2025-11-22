@@ -149,6 +149,7 @@ body {
 .recommend-grid {
     display: flex;
     gap: 20px;
+    justify-content: space-around;
 }
 
 /* --- Estilo para o Cartão de Gestão de Tempo (.rec-card) --- */

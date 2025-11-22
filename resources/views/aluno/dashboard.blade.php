@@ -87,7 +87,7 @@
                 <div class="rec-card">
                     <h3>Técnicas de foco</h3>
                     <p>Aprenda 5 técnicas para melhorar seu foco</p>
-                    <button>Começar</button>
+                    <a href="#" class="reco-btn">Começar Trilha</a>
                 </div>
 
                 <div class="rec-card">
@@ -100,7 +100,7 @@
                     <h3>Organização</h3>
                     <p>Dicas para manter tudo organizado</p>
                     <p>Dicas para manter tudo organizado</p>
-                    <button>Começar</button>
+                    <a href="#" class="reco-btn">Começar Trilha</a>
                 </div>
 
             </div>
