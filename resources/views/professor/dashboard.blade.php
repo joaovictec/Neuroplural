@@ -4,8 +4,8 @@
 <link rel="stylesheet" href="{{ asset('css/nav.css') }}">
 @section('professor-header')
     <div class="top-nav-professor">
-        <a href="{{ route('professor.dashboard') }}" class="nav-item">Voltar</a>
-        <a href="{{ route('professor.dashboard') }}" class="nav-item">Saber Mais</a>
+         <button class="back-btn">←</button>
+        <a href="{{ route('professor.dashboard') }}" class="nav-item">Sobre Nós</a>
         <a href="{{ route('professor.dashboard') }}" class="nav-item">Início</a>
     </div>
 @endsection

@@ -70,17 +70,7 @@ $color_index = 0;
                 </div>
             @endforeach
 
-            {{-- Adiciona o Box Adicional fixo para manter o layout da imagem original --}}
-            <div class="tabler-icons-box">
-                <div class="tabler-content">
-                    <span class="tabler-code-icon">>_</span>
-                    <div class="tabler-details">
-                        <p class="tabler-title">Recurso Adicional</p>
-                        <p class="tabler-info">Aprenda a otimizar</p>
-                        <p class="tabler-info">Seu foco</p>
-                    </div>
-                </div>
-            </div>
+           
         </div>
     @else
         <p class="text-gray-600">Não há dicas disponíveis no momento.</p>

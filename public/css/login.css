@@ -1,191 +1,325 @@
+/*
+|--------------------------------------------------------------------------
+| VARIÁVEIS DE CORES
+|--------------------------------------------------------------------------
+*/
+:root {
+    /* Cores da Paleta */
+    --cor-turquesa: #00bcd4; /* Turquesa (Botão, Foco, Ação) */
+    --cor-amarelo: #ffc107; /* Amarelo Vivo (Coluna de Destaque) */
+
+    /* Cores do Footer (Padronizado com a HOME) */
+    --cor-footer-fundo: #212529; /* Preto/Cinza Escuro (do HOME) */
+    --cor-footer-texto: #f8f9fa; /* Off-white */
+
+    /* Neutros */
+    --cor-fundo-coluna: #f3f3e9; /* Amarelo/Creme muito claro, quase branco (Para a form-section) */
+    --cor-fundo-main: #ffffff; /* Fundo puro para a body */
+    --cor-texto-escuro: #212529;
+    --cor-texto-cinza: #6c757d;
+    --cor-borda-input: #e0e0e0;
+
+    /* Gradiente do Header Original (A ser mantido) */
+    --cor-header-gradiente: linear-gradient(to right, #43e97b, #38f9d7);
+}
+
+/*
+|--------------------------------------------------------------------------
+| RESET E ESTRUTURA
+|--------------------------------------------------------------------------
+*/
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-  background-color: #f9f9f9;
+    font-family: 'Inter', sans-serif;
+    color: var(--cor-texto-escuro);
+    background-color: var(--cor-fundo-main);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
-/* Topo preto com contato */
+/*
+|--------------------------------------------------------------------------
+| BARRA SUPERIOR (TOP-BAR) - POLIMENTO
+|--------------------------------------------------------------------------
+*/
 .top-bar {
-  background-color: #000;
-  color: white;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 5px 20px;
-  font-size: 0.9rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 3rem;
+    background: var(--cor-turquesa);
+    color: white;
+    font-size: 0.8rem;
 }
 
 .social-icons i {
-  margin-left: 10px;
-  cursor: pointer;
+    margin-left: 1rem;
+    cursor: pointer;
+    transition: transform 0.2s;
 }
 
-/* Header */
+/*
+|--------------------------------------------------------------------------
+| HEADER - MANTENDO COR ESTRUTURAL
+|--------------------------------------------------------------------------
+*/
 header {
-  background: linear-gradient(to right, #00AFc0, #FECA54);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 30px;
-  color: #fff;
-  height: 5vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* AUMENTAR O PADDING SUPERIOR/INFERIOR (Antes era 1rem 3rem) */
+    padding: 1rem 1rem;
+    background: transparent;
+    position: absolute;
+    top: 2rem;
+    width: 50%;
+    z-index: 10;
 }
 
+header .logo img {
+    /* Manter este valor se você já definiu o novo tamanho */
+    width: 110px; /* Exemplo: Se sua nova logo tem 60px de altura */
+}
 header nav a {
-  color: white;
-  text-decoration: none;
-  margin: 0 15px;
-  font-weight: bold;
+    text-decoration: none;
+    color: var(--cor-texto-escuro);
+    margin-left: 2rem;
+    font-weight: 500;
+    transition: color 0.3s;
 }
 
 header nav a:hover {
-  text-decoration: underline;
+    color: var(--cor-turquesa);
 }
 
 .menu-icon {
-  display: none;
+    display: none;
 }
 
-.logo {
-  display: flex;
-  align-items: center;
-  font-weight: bold;
-}
-
-.logo img {
-  width: 140px;
-  margin-right: 8px;
-}
-
-/* Main */
+/*
+|--------------------------------------------------------------------------
+| CONTAINER PRINCIPAL (MAIN) - TAMANHO TOTAL E COLUNAS
+|--------------------------------------------------------------------------
+*/
 main {
-  display: flex;
-  height: 78vh;
+    display: flex;
+    flex-grow: 1;
+    /* AUMENTAR O ESPAÇO PARA A LOGO MAIOR.
+       (Antes era 5rem, agora 7rem ou mais dependendo do tamanho da logo) */
+    padding-top: 7rem;
+
+    /* Manter o cálculo de altura para tela total */
+    min-height: calc(100vh - 120px);
 }
-
+/*
+|--------------------------------------------------------------------------
+| SEÇÃO DO FORMULÁRIO (ESQUERDA) - BOX SUAVE APLICADA
+|--------------------------------------------------------------------------
+*/
 .form-section {
-  flex: 1;
-  background-color: beige;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 60px;
-
-
+    flex: 1 1 50%;
+    background-color: var(--cor-fundo-coluna);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
 }
 
 .form-section h2 {
-  margin-bottom: 20px;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--cor-texto-escuro);
+    margin-bottom: 2.5rem;
 }
 
-form input {
-  width: 100%;
-  padding: 10px;
-  margin: 8px 0;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  gap: 10px;
-
+/* A BOX SUAVE */
+.form-section form {
+    max-width: 400px;
+    width: 100%;
+    padding: 2.5rem;
+    background-color: #ffffff; /* Fundo branco puro para elevação */
+    border-radius: 12px;
+    /* BOX SHADOW SUAVE */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
 
-form button {
-  background: linear-gradient(to right, #2ecc71, #f1c40f);
-  border: none;
-  color: white;
-  font-weight: bold;
-  padding: 10px;
-  border-radius: 20px;
-  cursor: pointer;
-  width: 150px;
-  transition: 0.3s;
-  margin: 10px 10px 0 0;
+/* Inputs (E-mail e Senha) */
+.form-section input {
+    width: 100%;
+    padding: 1rem 1.25rem;
+    margin-bottom: 1.25rem;
+    border: 1px solid var(--cor-borda-input);
+    border-radius: 8px;
+    font-size: 1rem;
+    color: var(--cor-texto-escuro);
+    transition: border-color 0.3s, box-shadow 0.3s;
+    background-color: #f7f7f7;
 }
 
-form button:hover {
-  opacity: 0.9;
+.form-section input:focus {
+    outline: none;
+    border-color: var(--cor-turquesa);
+    box-shadow: 0 0 0 3px rgba(0, 188, 212, 0.2);
+    background-color: #ffffff;
 }
 
-.terms {
-  font-size: 0.8rem;
-  color: #666;
-  gap: 10px;
+/* Link Esqueci a Senha (terms) */
+.form-section .terms {
+    margin-bottom: 1.5rem;
+    text-align: right;
 }
 
-.terms a {
-  color: #2ecc71;
-  text-decoration: none;
+.form-section .terms a {
+    color: var(--cor-texto-cinza);
+    font-size: 0.9rem;
+    text-decoration: none;
 }
 
-/* Imagem lateral */
+.form-section .terms a:hover {
+    color: var(--cor-turquesa);
+}
+
+/* Botão "Logar" - Estilo Pill */
+.form-section button[type="submit"] {
+    width: 100%;
+    background-color: var(--cor-turquesa);
+    color: white;
+    padding: 0.9rem 1.5rem;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+    box-shadow: 0 4px 10px rgba(0, 188, 212, 0.3);
+}
+
+.form-section button[type="submit"]:hover {
+    background-color: #008c9e;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 15px rgba(0, 188, 212, 0.4);
+}
+
+/* Alerta de Erro */
+.alert-error {
+    background-color: #ffe0b2;
+    color: var(--cor-texto-escuro);
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    border-left: 5px solid #ff9800;
+    max-width: 400px;
+    width: 100%;
+}
+
+/*
+|--------------------------------------------------------------------------
+| SEÇÃO DA IMAGEM (DIREITA)
+|--------------------------------------------------------------------------
+*/
 .image-section {
-  flex: 1;
-  background-color:  #FECA54;
-  display: flex;
-  justify-content: end;
-  align-items: center;
+    flex: 1 1 50%;
+    background-color: var(--cor-amarelo);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
 }
 
 .image-section img {
-  width: 70%;
-  max-width: 550px;
+    max-width: 100%;
+    height: auto;
+    max-height: 80vh;
+    filter: drop-shadow(0px 8px 15px rgba(0, 0, 0, 0.3)); /* Sombra escura e suave */
+
+    transition: filter 0.3s ease-in-out; /* Adiciona transição para um toque moderno */
 }
 
-/* Rodapé */
+.image-section img:hover {
+    filter: drop-shadow(0px 12px 20px rgba(0, 0, 0, 0.4)); /* Sombra um pouco mais intensa no hover */
+}
+
+/*
+|--------------------------------------------------------------------------
+| RODAPÉ (FOOTER) - PADRONIZADO COM A COR ESCURA (HOME)
+|--------------------------------------------------------------------------
+*/
 footer {
-  background-color: #7098bb;
-  color: white;
-  text-align: center;
-  padding: 40px 20px;
-  height: 15vh;
+    width: 100%;
+    background-color: var(--cor-footer-fundo); /* Cor Escura Padronizada */
+    color: var(--cor-footer-texto);
+    text-align: center;
+    padding: 2rem 1rem;
+    font-size: 0.85rem;
+    line-height: 1.4;
 }
 
-.footer-logo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+footer .footer-logo img {
+    height: 35px;
+    margin-bottom: 1rem;
+    filter: brightness(0) invert(1);
 }
 
-.footer-logo img {
-  width: 70px;
-  margin-right: 10px;
+footer p {
+    margin: 0.25rem auto;
+    max-width: 700px;
+    color: rgba(255, 255, 255, 0.7);
 }
 
-.footer-icons i {
-  margin: 10px;
-  cursor: pointer;
+footer .love {
+    color: var(--cor-amarelo);
 }
 
-.love {
-  margin-top: 10px;
-  font-style: italic;
-}
+/*
+|--------------------------------------------------------------------------
+| MEDIA QUERIES (Responsividade)
+|--------------------------------------------------------------------------
+*/
+@media (max-width: 992px) {
+    main {
+        flex-direction: column;
+    }
 
-.rights {
-  font-size: 0.8rem;
-  color: #ccc;
-  margin-top: 15px;
-}
+    /* Ajuste para o header em telas menores */
+header {
+        position: relative;
+        width: 100%;
+        background-color: var(--cor-fundo-coluna);
+        top: 0;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        /* Reduzir o padding para mobile */
+        padding: 1rem;
+    }
+    .top-bar {
+        position: relative;
+        z-index: 1;
+    }
 
-/* Responsividade */
-@media (max-width: 900px) {
-  main {
-    flex-direction: column;
-  }
+    .form-section {
+        order: 1;
+        padding-top: 2rem;
+    }
 
-  .image-section {
-    display: none;
-  }
-}
-.alert-error {
-  background: #ffe0e0;
-  border-left: 4px solid #ff4d4d;
-  color: #a30000;
-  padding: 10px;
-  margin-bottom: 15px;
-  border-radius: 5px;
+    .image-section {
+        order: 0;
+        min-height: 250px;
+        padding: 3rem 1rem;
+    }
+
+    .form-section,
+    .image-section {
+        flex: 1 1 100%;
+        min-height: auto;
+    }
+
+    .form-section form {
+        padding: 2rem 1.5rem;
+    }
 }

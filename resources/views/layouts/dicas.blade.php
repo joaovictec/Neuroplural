@@ -54,31 +54,16 @@
     </div>
 
     {{-- 7. FOOTER COMPLETO (Rodapé da página) --}}
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-logo-text">
-                <span class="footer-logo"></span>
-                <span class="footer-text-title">NeuroPlural</span>
-            </div>
-            <p class="footer-description">
-                NeuroPlural é uma plataforma dedicada a promover a compreensão e o apoio a pessoas com Transtorno do Espectro Autista (TEA), TDAH, Dislexia, entre outros.
-            </p>
-            <p class="footer-motto">
+    <footer class="main-footer" style="background-color: var(--color-footer-bg); color: white; padding: 40px 0;" height:5dvh>
+        <div class="footer-content" style="text-align: center;">
+            {{-- Conteúdo padrão do footer da sua aplicação --}}
+            <img src="{{ asset('assets/Logo_NeuroPlural__1_-removebg-preview.png') }}" alt="NeuroPlural" style="width: 70px; margin-bottom: 2px; filter: brightness(0) invert(1);">
+            <p style="font-size: 15px; max-width: 600px; margin: 0 auto 10px;">
+                NeuroPlural é uma plataforma dedicada a promover a compreensão e o apoio a pessoas com TDAH e suas famílias, contribuindo para uma sociedade mais inclusiva.
+                <br>
                 Feito com amor para uma educação mais inclusiva.
             </p>
-            <div class="footer-bottom">
-                <div class="footer-links">
-                    <a href="#">Termos e diretrizes</a>
-                </div>
-                <p class="footer-copyright">
-                    © 2025 NeuroPlural. Esta página é apenas informativa e não substitui orientação profissional.
-                </p>
-                <div class="social-icons">
-                    <i class="fab fa-linkedin-in"></i>
-                    <i class="fab fa-facebook-f"></i>
-                    <i class="fab fa-instagram"></i>
-                </div>
-            </div>
+            <p style="font-size: 10px; color: #aaa;">© 2025 NeuroPlural. Esta página é apenas informativa e não substitui orientação profissional.</p>
         </div>
     </footer>
 

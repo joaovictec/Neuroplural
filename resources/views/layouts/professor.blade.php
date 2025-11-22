@@ -50,6 +50,18 @@
             color: var(--color-text-dark);
             font-weight: 500;
         }
+        .back-btn{
+    color: white;
+    background: none;
+    border: none;
+    font-size: 24px; /* Ícone maior */
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+.back-btn:hover {
+    opacity: 0.8;
+}
+
     </style>
 </head>
 <body>

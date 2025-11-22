@@ -1,7 +1,7 @@
 /* Variáveis de Cores Exatas da Referência */
 :root {
     /* Cores da Marca e Base */
-    --color-neuroplural-orange: #ff8c00; /* Laranja da logo e texto */
+    --color-neuroplural-orange: #ff8c42; /* Laranja da logo e texto */
     --color-neuroplural-green: #4caf50; /* Verde do perfil e da logo */
     --color-footer-bg: #2e3e46; /* Azul Escuro do Rodapé */
     --color-background-light: #f4f7f9; /* Fundo Principal */
@@ -63,7 +63,7 @@ a {
     justify-content: space-between;
     align-items: center;
     padding: 15px 30px;
-    background-color: var(--color-tabler-bg);
+    background-color: var(--color-neuroplural-orange);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
     height: 6dvh;
 }

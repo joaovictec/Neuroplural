@@ -1,110 +1,126 @@
-/* --- Estilos da Tela de Trilhas (image_7a1c40.png) --- */
+:root {
+    --color-text-dark: #333;
+    --color-text-light: #666;
+    --sombra-card: 0 4px 15px rgba(0, 0, 0, 0.08);
+    --sombra-card-hover: 0 8px 20px rgba(0, 0, 0, 0.15);
+    --cor-secundaria-azul: #174d8c;
+    --cor-progresso-verde: #4CAF50;
+    --cor-progresso-laranja: #ff8c42;
+    --cor-progresso-azul: #2196F3;
+    --cor-progresso-rosa: #E91E63;
+    --color-neuroplural-orange: #ff8c00;
+    --font-family-primary: 'Roboto', 'Open Sans', 'Arial', sans-serif;
+}
 
+/* Fonte Global */
+body, .trilhas-page-container {
+    font-family: var(--font-family-primary);
+    margin: 0;
+    padding: 0;
+}
+
+/* --- Tela de Trilhas --- */
 .trilhas-page-container {
-    padding: 0 50px 50px; /* Mantém o alinhamento */
+    padding: 60px 120px 80px; /* Ajuste para telas grandes */
+    min-height: 100vh;
+    max-width: 1920px;
+    margin: 0 auto;
+    box-sizing: border-box;
 }
 
 .section-header-trilhas {
-    margin-bottom: 30px;
+    margin-bottom: 50px;
 }
 
-/* Grid de Trilhas (4 Colunas) */
+/* Grid de Trilhas */
 .trilhas-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
+    grid-template-columns: repeat(4, 1fr); /* 4 colunas padrão */
+    gap: 40px;
 }
 
+/* Cards */
 .trilha-card {
-    background-color: var(--color-card-bg);
-    border-radius: 12px;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    background-color: var(--color-card-bg, #fff);
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: var(--sombra-card);
     display: flex;
     flex-direction: column;
-    height: 240px; /* Altura fixa para manter o alinhamento */
-    transition: box-shadow 0.2s;
+    height: 300px; /* maior para tela grande */
+    transition: box-shadow 0.3s, transform 0.3s;
 }
 
 .trilha-card:hover {
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--sombra-card-hover);
+    transform: translateY(-6px);
 }
 
 .trilha-header {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 .trilha-title {
-    font-size: 18px;
+    font-size: 1.25rem;
     font-weight: 700;
-    color: var(--color-text-dark);
-    line-height: 1.3;
-    margin-right: 10px;
+    color: var(--cor-secundaria-azul);
+    line-height: 1.4;
+    margin-right: 12px;
 }
 
+/* Tags de Dificuldade */
 .trilha-tag {
     font-size: 11px;
     font-weight: 700;
-    padding: 3px 8px;
-    border-radius: 4px;
+    padding: 5px 12px;
+    border-radius: 50px;
     color: white;
     text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
 }
 
-/* Cores das Tags (Importante para a estética) */
-.trilha-tag.iniciante {
-    background-color: #4CAF50; /* Verde */
-}
-
-.trilha-tag.intermediario {
-    background-color: #FF9800; /* Laranja */
-}
-
-.trilha-tag.avancado {
-    background-color: #2196F3; /* Azul */
-}
+.trilha-tag.iniciante { background-color: var(--cor-progresso-verde); }
+.trilha-tag.intermediario { background-color: var(--cor-progresso-laranja); }
+.trilha-tag.avancado { background-color: var(--cor-progresso-azul); }
 
 .trilha-description {
-    font-size: 14px;
+    font-size: 1rem;
     color: var(--color-text-light);
-    margin-bottom: 20px;
-    line-height: 1.4;
-    flex-grow: 1; /* Empurra o progresso para baixo */
+    margin-bottom: 25px;
+    line-height: 1.6;
+    flex-grow: 1;
 }
 
-/* --- Barra de Progresso --- */
+/* Barra de Progresso */
 .progress-container {
-    height: 6px;
-    background-color: #eee;
-    border-radius: 3px;
-    margin-bottom: 5px;
+    height: 10px; /* mais alta para 1080p */
+    background-color: #e9ecef;
+    border-radius: 50px;
+    margin-bottom: 10px;
     overflow: hidden;
-}
-
-.progress-container.not-started {
-    background-color: #f0f0f0;
 }
 
 .progress-bar {
     height: 100%;
-    background: linear-gradient(to right, #FF9800, #FFC107); /* Laranja/Amarelo */
-    border-radius: 3px;
+    background: linear-gradient(to right, #FF9800, #FFC107);
+    border-radius: 50px;
     transition: width 0.5s ease-in-out;
 }
 
-/* A barra de progresso do cartão 3 (Organização) parece ser rosa/magenta na ref. */
 .trilha-card:nth-child(3) .progress-bar {
-    background: linear-gradient(to right, #E91E63, #FF4081); /* Rosa/Magenta */
+    background: linear-gradient(to right, #E91E63, #FF4081);
 }
 
 .progress-text {
-    font-size: 12px;
+    font-size: 1rem;
     font-weight: 600;
     color: var(--color-text-dark);
     margin-bottom: 20px;
+    text-align: right;
 }
 
 .progress-text.not-started-text {
@@ -112,35 +128,57 @@
     font-weight: 400;
 }
 
-/* --- Botões --- */
+/* Botões */
 .trilha-button {
     text-align: center;
-    padding: 10px 15px;
-    border-radius: 20px;
-    font-size: 14px;
+    padding: 12px 18px;
+    border-radius: 50px;
+    font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
-    transition: background-color 0.2s;
+    transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
     width: 100%;
-    margin-top: auto; /* Alinha o botão na parte inferior */
+    margin-top: auto;
 }
 
 .trilha-button.continuar {
-    background-color: #f0f0f0;
+    background-color: transparent;
     color: var(--color-text-dark);
-    border: 1px solid #e0e0e0;
+    border: 2px solid #ddd;
 }
 
 .trilha-button.continuar:hover {
-    background-color: #e0e0e0;
+    background-color: #f0f0f0;
+    border-color: #c0c0c0;
+    transform: translateY(-2px);
 }
 
 .trilha-button.comecar {
-    background-color: var(--color-neuroplural-orange); /* Laranja do logo */
+    background-color: var(--color-neuroplural-orange);
     color: white;
     border: none;
+    box-shadow: 0 4px 12px rgba(255, 140, 0, 0.4);
 }
 
 .trilha-button.comecar:hover {
     background-color: #e67e22;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(255, 140, 0, 0.6);
+}
+
+/* --- Ajustes para telas grandes --- */
+@media (min-width: 1920px) {
+    .trilhas-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 50px;
+    }
+
+    .trilha-card {
+        height: 320px;
+        padding: 35px;
+    }
+
+    .trilha-title { font-size: 1.3rem; }
+    .trilha-description { font-size: 1.05rem; }
+    .progress-text { font-size: 1.05rem; }
 }

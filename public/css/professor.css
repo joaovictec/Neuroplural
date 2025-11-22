@@ -10,7 +10,18 @@
     --color-info-blue: #1976d2; /* Azul para links/detalhes */
     --color-footer-bg: #2f4858;
     --header-cor : #20AB9D;
+
+    /* VARIÁVEIS DE FONTE ADICIONADAS */
+    --font-family-primary: 'Inter', 'Roboto', 'Arial', sans-serif; /* Fonte padrão para a maioria do corpo */
+    --font-family-header: 'Roboto Condensed', sans-serif; /* Mantida para navegação superior, se desejado */
 }
+
+/* Aplicação da fonte ao corpo e seletor universal */
+*,
+body {
+    font-family: var(--font-family-primary);
+}
+
 
 /* ================================================= */
 /* 1. HEADER E NAVEGAÇÃO SUPERIOR */
@@ -24,11 +35,14 @@
     align-items: center;
     height: 60px;
 }
+
+/* Reset original, apenas modificado para aplicar a fonte */
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
 /* Menu Voltar | Saber Mais | Início */
 .top-nav-professor {
     display: flex;
@@ -39,7 +53,8 @@
 .top-nav-professor .nav-item {
     color: white; /* Texto Branco */
     font-weight: 600;
-    font-family: 'Roboto Condensed', sans-serif;
+    /* Usando a variável de fonte do header, se desejar diferenciada */
+    font-family: var(--font-family-header);
     padding: 5px 0;
     text-decoration: none;
     font-size: 14px;
@@ -290,7 +305,9 @@ span.nome-professor {
     font-weight: 500;
     transition: opacity 0.2s;
 }
+
 .main-footer{
     font-weight: 600;
-    font-family: 'Roboto Condensed', sans-serif;
+    /* Usando a variável de fonte do header, se desejar diferenciada */
+    font-family: var(--font-family-header);
 }

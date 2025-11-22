@@ -1,24 +1,50 @@
-/* Fundo */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+/*
+|--------------------------------------------------------------------------
+| VARIÁVEIS DE CORES E TIPOGRAFIA
+|--------------------------------------------------------------------------
+*/
+:root {
+    /* Tipografia */
+    --font-principal: 'Inter', sans-serif;
+
+    /* Cores da Paleta */
+    --cor-turquesa: #1aa7a1; /* Verde-Azulado */
+    --cor-azul-escuro: #193a6a; /* Azul Escuro (Textos principais) */
+    --cor-cinza-texto: #6a6a6a; /* Cinza suave (Textos de corpo) */
+
+    /* Neutros */
+    --cor-fundo-card: #ffffff;
+    --cor-fundo-icon-bg: #f0fdfc; /* Fundo pastel do ícone */
+}
+
+/*
+|--------------------------------------------------------------------------
+| RESET E TIPOGRAFIA GERAL
+|--------------------------------------------------------------------------
+*/
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-#title_inicio {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
+body {
+    font-family: var(--font-principal);
+    line-height: 1.6;
+    color: var(--cor-texto-escuro);
 }
 
+/* Fundo Gradiente (BG-GRADIENT) */
 .bg-gradient {
     min-height: 100vh;
+    /* MANTIDO O SEU GRADIENTE ORIGINAL */
     background: linear-gradient(to bottom right, #1aa7a1, #ff9966, #ffcc66);
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-bottom: 80px; /* Adiciona espaço no final da seção */
 }
 
 /* Logo */
@@ -30,105 +56,102 @@
     width: 150px;
 }
 
-/* Textos Principais */
+/*
+|--------------------------------------------------------------------------
+| TÍTULOS E SUBTÍTULOS
+|--------------------------------------------------------------------------
+*/
+#title_inicio {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
 .welcome-title {
     margin-top: 30px;
     font-size: 3rem;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--font-principal);
     color: #ffffff;
-    font-weight: bold;
+    font-weight: 800; /* Mais peso */
     text-align: center;
-    text-shadow: #000 2px 3px 20px
+    text-shadow: #000 0px 4px 10px; /* Sombra mais suave */
 }
 
 .main-title {
-    background: white;
-    color: #193a6a;
+    background: var(--cor-fundo-card);
+    color: var(--cor-azul-escuro);
     display: inline-block;
     padding: 14px 40px;
     border-radius: 10px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--font-principal);
     font-size: 2.5rem;
     margin-top: 10px;
-    font-weight: bold;
+    font-weight: 900; /* Extra bold */
+    letter-spacing: -0.05em; /* Toque moderno */
 }
 
 .subtitle {
     margin-top: 10px;
     color: #ffffff;
-    font-size: 1.5rem;
+    font-size: 1.4rem; /* Um pouco menor/mais elegante */
+    font-family: var(--font-principal);
+    font-weight: 300; /* Mais leve */
     text-align: center;
+    max-width: 800px;
 }
 
-/* Cards container */
+/*
+|--------------------------------------------------------------------------
+| CARDS E CONTEÚDO
+|--------------------------------------------------------------------------
+*/
 .cards {
     margin-top: 60px;
+    gap: 50px; /* Mais espaçamento entre os cards */
     display: flex;
-    gap: 40px;
     flex-wrap: wrap;
     justify-content: center;
 }
 
-/* -------------------------------------- */
-/* ESTILO DO CARD (REPLICADO DA IMAGEM) */
-/* -------------------------------------- */
-
 /* Card */
 .card {
-    background: #ffffff;
-    /* Tamanho fixo para melhor controle de layout */
+    background: var(--cor-fundo-card);
     width: 380px;
     height: 400px;
-
-    /* Espaçamento interno (padding) e sombra suave */
-    padding: 40px 30px;
-    border-radius: 18px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-
-    /* Configuração Flexbox */
+    padding: 45px 35px; /* Padding aprimorado */
+    border-radius: 16px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.08);
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    /* Espaço entre os elementos filhos (ícone, título, texto, link) */
     gap: 20px;
-
     text-decoration: none;
     color: inherit;
     transition: 0.3s;
-    /* Necessário para posicionar o círculo::before e o ícone */
     position: relative;
 }
 
-/* Círculo Sutil de Fundo (NOVO: Para replicar o design da imagem) */
+/* Círculo Sutil de Fundo */
 .icon-bg {
-    /* Dimensões do círculo de fundo na imagem */
     width: 120px;
     height: 120px;
     border-radius: 50%;
-
-    /* Cor de fundo pastel e borda suave */
-    background-color: #f0fdfc; /* Exemplo de cor pastel */
-    border: 1px solid #d0f7f5; /* Borda suave */
-
-    /* Centraliza o ícone dentro do círculo */
+    background-color: var(--cor-fundo-icon-bg);
+    border: 1px solid #d0f7f5;
     display: flex;
     justify-content: center;
     align-items: center;
-
-    /* Configurações de Empilhamento */
     position: relative;
-    /* Colocado sobre o ::before, mas abaixo do .icon i */
     z-index: 5;
 }
 
 /* Ícone dentro do Círculo */
 .card .icon i {
-    /* Cor do ícone (o verde-azulado da imagem) */
-    color: #1aa7a1;
-    /* Tamanho do ícone (maior, como na imagem) */
-    font-size: 4rem;
-    /* Opcional, para garantir que o ícone fique na frente de tudo */
+    color: var(--cor-turquesa);
+    font-size: 4.5rem; /* Ícone maior */
     position: relative;
     z-index: 10;
 }
@@ -136,31 +159,33 @@
 
 /* Título Principal do Card */
 .card h3 {
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: #193a6a; /* Cor principal de texto (azul escuro) */
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--cor-azul-escuro);
+    font-family: var(--font-principal);
     margin-top: 10px;
 }
 
 /* Texto Descritivo */
 .card p {
-    font-size: 1rem;
-    color: #6a6a6a; /* Cor de texto cinza (mais suave que o preto) */
+    font-size: 0.95rem;
+    color: var(--cor-cinza-texto);
+    font-family: var(--font-principal);
     text-align: center;
-    line-height: 1.5;
-    max-width: 85%;
+    line-height: 1.6; /* Aumenta o espaçamento entre linhas */
+    max-width: 90%;
     margin: 0 auto;
 }
 
-/* Link de Acesso (Substitui o botão .btn) */
+/* Link de Acesso */
 .acessar-link {
     display: inline-block;
-    color: #1aa7a1; /* Cor verde-azulada do link */
+    color: var(--cor-turquesa);
     font-weight: bold;
     font-size: 1.1rem;
     text-decoration: none;
     transition: color 0.2s;
-    margin-top: 10px; /* Garante espaço após o parágrafo */
+    margin-top: 10px;
 }
 
 .acessar-link:hover {
@@ -168,52 +193,26 @@
     color: #158b88;
 }
 
-/* REMOVIDO: O círculo de hover verde antigo foi removido para replicar a imagem */
-.card::before {
-    /* Estas propriedades são do círculo antigo e foram removidas */
-    display: none;
-}
-/* O bloco .card:hover::before não é mais necessário, mas será mantido aqui desabilitado
-   para não causar erros se o HTML antigo ainda estiver por perto:
-*/
-/*
-.card:hover::before {
-    content: "";
-    position: absolute;
-    width: 120px;
-    height: 120px;
-    background: #2ecc71;
-    border-radius: 50%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 0;
-    transition: 0.3s ease;
-    display: none;
-}
-*/
-
-
-/* Efeito de elevação no hover (Mantido) */
+/* Efeito de elevação no hover */
 .card:hover {
     transform: translateY(-6px);
     box-shadow: 0 10px 24px rgba(0,0,0,0.15);
     cursor: pointer;
 }
 
-/* O resto do CSS original */
-
-/* Botão (Escondido, pois usamos .acessar-link agora) */
-.btn {
-    display: none;
-}
-
-/* Link inferior */
+/* Link inferior (CTA) */
 .about-tdah {
     margin-top: 40px;
     color: white;
-    font-size: 1.5rem;
+    font-size: 1.3rem; /* Tamanho ajustado */
+    font-family: var(--font-principal);
+    font-weight: 500;
     text-decoration: underline;
+    transition: color 0.2s;
+}
+
+.about-tdah:hover {
+    color: #d8d8d8;
 }
 
 .alinhar {
@@ -221,4 +220,36 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+/*
+|--------------------------------------------------------------------------
+| MEDIA QUERIES (Responsividade)
+|--------------------------------------------------------------------------
+*/
+@media (max-width: 992px) {
+    .cards {
+        gap: 30px;
+        padding: 0 20px;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 350px;
+        height: auto;
+    }
+
+    .welcome-title {
+        font-size: 2.5rem;
+    }
+
+    .main-title {
+        font-size: 2rem;
+        padding: 10px 25px;
+    }
+
+    .subtitle {
+        font-size: 1.2rem;
+        padding: 0 1rem;
+    }
 }

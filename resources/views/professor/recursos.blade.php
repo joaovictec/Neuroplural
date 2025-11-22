@@ -5,7 +5,7 @@
 {{-- Menu de navegação superior (assumindo que já está definido no layout) --}}
 @section('professor-header')
     <div class="top-nav-professor">
-        <a href="#" class="nav-item">Voltar</a>
+         <button class="back-btn">←</button>
         <a href="#" class="nav-item">Sobre Nós</a>
         <a href="#" class="nav-item">Início</a>
     </div>
