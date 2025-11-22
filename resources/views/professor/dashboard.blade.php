@@ -33,12 +33,12 @@
             <span>Biblioteca de Recursos</span>
         </a>
 
-        <a href="#" class="nav-link-card nav-aulas">
+        <a href="{{ route('professor.aulas') }}" class="nav-link-card nav-aulas">
             <i class="fas fa-calendar-alt"></i>
             <span>Planejador de Aulas</span>
         </a>
 
-        <a href="#" class="nav-link-card nav-projetos">
+        <a href="{{ route('professor.avaliacoes') }}" class="nav-link-card nav-projetos">
             <i class="fas fa-file-alt"></i>
             <span>Avaliações e Projetos</span>
         </a>

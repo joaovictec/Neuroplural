@@ -1,0 +1,187 @@
+/* --- VARIÁVEIS DE COR GERAIS --- */
+:root {
+    --color-background-light: #f8f8f8;
+    --color-text-dark: #333;
+    --color-text-light: #777;
+    --color-info-blue: #5bc0de;
+    --color-success-green: #5cb85c;
+    --color-card-bg: white;
+}
+
+/* --- Estilos da Página Planejador de Aulas --- */
+
+.professor-aulas-container {
+    padding: 30px 50px;
+    background-color: var(--color-background-light);
+    min-height: 85vh;
+}
+
+.page-title-aulas {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--color-text-dark);
+    margin-bottom: 20px;
+}
+
+/* Botão Planear Aula (Verde Suave) */
+.aulas-actions {
+    margin-bottom: 30px;
+}
+
+.btn-planejar-aula {
+    background-color: var(--color-success-green);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn-planejar-aula i {
+    margin-right: 5px;
+}
+
+/* --- Componente de Calendário Semanal --- */
+
+.calendario-semanal-card {
+    background-color: var(--color-card-bg);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.calendario-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.mes-ano {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--color-text-dark);
+}
+
+.nav-arrow {
+    background: none;
+    border: none;
+    color: var(--color-info-blue);
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.dias-da-semana, .dias-numeros {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+}
+
+.dia-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-text-dark);
+    padding: 5px 0;
+}
+
+.dias-numeros {
+    margin-top: 10px;
+}
+
+.dia-num {
+    font-size: 16px;
+    color: var(--color-text-dark);
+    padding: 10px 0;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    border-radius: 4px;
+    font-weight: 500;
+}
+
+.dia-num:hover {
+    background-color: #f0f0f0;
+}
+
+.dia-hoje {
+    background-color: var(--color-info-blue);
+    color: white;
+    font-weight: 700;
+}
+
+/* O ícone de seta do dia de hoje (no calendário) */
+.calendario-nav .fa-play {
+    color: #5cb85c; /* Cor verde para destaque de avançar no tempo */
+}
+
+/* --- Lista de Aulas Planejadas --- */
+
+.lista-titulo {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--color-text-dark);
+    margin-bottom: 15px;
+}
+
+.aulas-planejadas-lista {
+    padding: 0;
+}
+
+.aula-item {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    background-color: white;
+}
+
+/* Estilo para item 'Hoje' (Fundo mais claro, como na ref.) */
+.aula-item-hoje {
+    background-color: #eaf8ff; /* Azul muito claro */
+}
+
+.aula-tempo-turma {
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+    width: 150px;
+    flex-shrink: 0;
+}
+
+.aula-hora {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--color-text-dark);
+}
+
+.aula-turma {
+    font-size: 12px;
+    color: var(--color-text-light);
+}
+
+.aula-nome {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--color-text-dark);
+    flex-grow: 1;
+    margin: 0;
+}
+
+.btn-editar-aula {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--color-info-blue);
+    cursor: pointer;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}

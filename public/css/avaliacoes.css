@@ -1,0 +1,134 @@
+/* --- VARIÁVEIS DE COR GERAIS --- */
+:root {
+    --color-background-light: #f8f8f8;
+    --color-text-dark: #333;
+    --color-text-light: #777;
+    --color-success-green: #5cb85c;
+    --color-card-bg: white;
+}
+
+/* --- Estilos da Página Avaliações e Projetos --- */
+
+.professor-avaliacoes-container {
+    padding: 30px 50px;
+    background-color: var(--color-background-light);
+    min-height: 85vh;
+}
+
+.page-title-avaliacoes {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--color-text-dark);
+    margin-bottom: 20px;
+}
+
+.avaliacoes-actions {
+    margin-bottom: 30px;
+}
+
+.btn-planejar-aula {
+    background-color: var(--color-success-green);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn-planejar-aula i {
+    margin-right: 5px;
+}
+
+/* --- Grid e Cartões de Avaliação --- */
+
+.avaliacoes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.avaliacao-card {
+    background-color: var(--color-card-bg);
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    /* Removido position: relative se não for mais necessário.
+       Mantido se elementos internos precisarem de posicionamento absoluto
+       que não seja a barra de progresso. */
+}
+
+.avaliacao-nome {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--color-text-dark);
+    margin-bottom: 5px;
+}
+
+.avaliacao-descricao {
+    font-size: 14px;
+    color: var(--color-text-light);
+    margin-bottom: 15px;
+    flex-grow: 1;
+}
+
+.avaliacao-stats {
+    margin-bottom: 15px; /* Reduzido o espaço para ficar mais próximo da barra */
+}
+
+.stat-item {
+    font-size: 14px;
+    color: var(--color-text-dark);
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.stat-item i {
+    color: var(--color-text-light);
+    margin-right: 8px;
+}
+
+.stat-concluido {
+    color: var(--color-success-green);
+}
+
+.stat-concluido i {
+    color: var(--color-success-green);
+}
+
+/* --- Barra de Progresso Corrigida (Elemento de Fluxo Normal) --- */
+
+.progress-bar-container {
+    /* Agora é um elemento de fluxo normal */
+    width: 100%;
+    height: 6px; /* Altura fina da barra */
+    background-color: #eee;
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 15px; /* Espaço entre a barra e o botão */
+}
+
+.progress-fill {
+    height: 100%;
+    background-color: var(--color-success-green);
+    transition: width 0.5s ease;
+}
+
+/* --- Botão Ver Resultados --- */
+
+.btn-ver-resultados {
+    display: block;
+    text-align: center;
+    padding: 10px 0;
+    border: 2px solid var(--color-success-green);
+    color: var(--color-success-green);
+    background-color: white;
+    border-radius: 5px;
+    font-weight: 600;
+    text-decoration: none;
+    margin-top: 0; /* Ligado diretamente ao progress-bar-container */
+}

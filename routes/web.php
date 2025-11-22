@@ -133,5 +133,15 @@ Route::prefix('professor')->name('professor.')->group(function () {
 });
   Route::view('/minhasTurmas', 'professor.minhasTurmas')
     ->name('professor.minhasTurmas');
+
+
+
     Route::view('/recursos', 'professor.recursos')
     ->name('professor.recursos');
+
+
+    Route::view('/aulas', 'professor.aulas')
+    ->name('professor.aulas');
+
+    Route::view('/avaliacoes', 'professor.avaliacoes')
+    ->name('professor.avaliacoes');
