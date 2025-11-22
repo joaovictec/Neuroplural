@@ -13,7 +13,8 @@
 .professor-aulas-container {
     padding: 30px 50px;
     background-color: var(--color-background-light);
-    min-height: 85vh;
+    min-height: 81vh;
+
 }
 
 .page-title-aulas {

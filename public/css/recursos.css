@@ -11,7 +11,7 @@
 .professor-recursos-container {
     padding: 30px 50px;
     background-color: var(--color-background-light);
-    min-height: 85vh;
+    min-height: 81vh;
 }
 
 .page-title-recursos {
@@ -24,7 +24,7 @@
 .page-subtitle-recursos {
     font-size: 16px;
     color: var(--color-text-light);
-    margin-bottom: 30px;
+    margin-bottom: 40px;
 }
 
 

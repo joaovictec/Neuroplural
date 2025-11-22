@@ -21,8 +21,6 @@ body, .trilhas-page-container {
 
 /* --- Tela de Trilhas --- */
 .trilhas-page-container {
-    padding: 60px 120px 80px; /* Ajuste para telas grandes */
-    min-height: 100vh;
     max-width: 1920px;
     margin: 0 auto;
     box-sizing: border-box;
@@ -37,6 +35,7 @@ body, .trilhas-page-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr); /* 4 colunas padrão */
     gap: 40px;
+
 }
 
 /* Cards */
