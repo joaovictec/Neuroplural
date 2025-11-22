@@ -60,4 +60,17 @@ class DicaController extends Controller
 
         return back()->with('sucesso', 'Dica removida.');
     }
+public function aluno()
+{
+    $dicas = Dica::all(); // pega todas as dicas
+    return view('aluno.dicas', compact('dicas'));
+}
+public function showAluno($id)
+{
+    // Busca a dica pelo ID ou retorna 404 se não existir
+    $dica = Dica::findOrFail($id);
+
+    // Retorna a view passando a dica
+    return view('aluno.dicas-show', compact('dica'));
+}
 }

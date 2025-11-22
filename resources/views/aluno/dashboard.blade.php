@@ -31,7 +31,8 @@
     {{-- MAIN --}}
     <main class="dashboard">
 
-        <h1>Bem-vindo, {{ $user->name ?? '(Nome)' }}! 👋</h1>
+        {{-- Assumindo que $user está sendo passado para esta view ou Auth::user() é usado --}}
+        <h1>Bem-vindo, {{ Auth::user()->name ?? '(Nome)' }}! 👋</h1>
         <p class="subtitle">Seu espaço personalizado para aprendizagem com foco em TDAH</p>
 
         {{-- CARDS SUPERIORES --}}
@@ -69,7 +70,9 @@
         <section class="actions">
             <button class="action-btn">Começar Trilha</button>
             <button class="action-btn">Jogar Agora</button>
-          <a href="{{ route('dicas') }}" class="action-btn">Ver Dicas</a>
+
+            {{-- ✅ CORREÇÃO APLICADA: Usando a rota nomeada 'aluno.dicas' que tem o prefixo /aluno --}}
+            <a href="{{ route('aluno.dicas') }}" class="action-btn">Ver Dicas</a>
 
             <button class="action-btn">Comunidade</button>
         </section>
@@ -95,6 +98,7 @@
 
                 <div class="rec-card">
                     <h3>Organização</h3>
+                    <p>Dicas para manter tudo organizado</p>
                     <p>Dicas para manter tudo organizado</p>
                     <button>Começar</button>
                 </div>

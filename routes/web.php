@@ -70,6 +70,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/aluno/dashboard', function () {
         return view('aluno.dashboard');
     })->name('aluno.dashboard');
+
+    // Página exclusiva de dicas para aluno
+    Route::get('/aluno/dicas', [DicaController::class, 'aluno'])->name('aluno.dicas');
+
+    // Página da dica completa para aluno (rota para "Ler mais")
+    Route::get('/aluno/dicas/{id}', [DicaController::class, 'showAluno'])->name('aluno.dicas.show');
 });
 
 
@@ -91,9 +97,7 @@ Route::middleware(['auth', 'eh.admin'])
 
         Route::resource('noticias', NoticiaController::class);
 
-        // ✅ ROTAS DE DICAS ADICIONADAS AQUI, USANDO RESOURCE
-        // Isso cria: admin.dicas.index, admin.dicas.create, admin.dicas.store, etc.
-        // O método admin() do seu DicaController deve ser renomeado para index()
+        // CRUD de dicas para admin
         Route::resource('dicas', DicaController::class);
 
         Route::resource('usuarios', UsuarioController::class)->except(['show']);

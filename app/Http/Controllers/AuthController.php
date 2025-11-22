@@ -9,6 +9,12 @@ use Illuminate\Support\Facades\Session;
 
 class AuthController extends Controller
 {
+     public function mostrarForm()
+    {
+        return view('auth.login');
+    }
+
+    // Processar o login
     public function login(Request $request)
     {
         $request->validate([
@@ -22,14 +28,19 @@ class AuthController extends Controller
             return back()->withErrors(['email' => 'Credenciais inválidas']);
         }
 
+        // Se o login for bem-sucedido, armazene o ID na sessão
         Session::put('usuario_id', $user->id);
 
-        return redirect('/dashboard');
+        // ✅ LÓGICA DE REDIRECIONAMENTO CONDICIONAL
+        // Você precisará garantir que o objeto $user possui a coluna 'is_admin'
+        if (isset($user->is_admin) && $user->is_admin) {
+            // Se for administrador, redireciona para o dashboard admin
+            return redirect()->route('admin.dashboard');
+        } else {
+            // Se for um usuário normal (aluno), redireciona para o dashboard do aluno
+            return redirect()->route('aluno.dashboard');
+        }
     }
-    public function showLogin()
-{
-    return view('auth.login'); // <- seu arquivo está aqui
-}
 
 
 public function register(Request $request)
