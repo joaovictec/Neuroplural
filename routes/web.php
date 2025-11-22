@@ -9,6 +9,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DicaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +24,9 @@ Route::get('/', function () {
 
 // Visualizar notícia pública
 Route::get('/noticia/{slug}', [PublicoController::class, 'show'])->name('noticia.show');
+
+// Tela pública de Dicas
+Route::get('/dicas', [DicaController::class, 'index'])->name('dicas');
 
 
 /*
@@ -62,6 +66,10 @@ Route::middleware('auth')->group(function () {
         return view('poslogin.dashboard');
     })->name('dashboard');
 
+    // Dashboard do Aluno
+    Route::get('/aluno/dashboard', function () {
+        return view('aluno.dashboard');
+    })->name('aluno.dashboard');
 });
 
 
@@ -83,10 +91,10 @@ Route::middleware(['auth', 'eh.admin'])
 
         Route::resource('noticias', NoticiaController::class);
 
+        // ✅ ROTAS DE DICAS ADICIONADAS AQUI, USANDO RESOURCE
+        // Isso cria: admin.dicas.index, admin.dicas.create, admin.dicas.store, etc.
+        // O método admin() do seu DicaController deve ser renomeado para index()
+        Route::resource('dicas', DicaController::class);
+
         Route::resource('usuarios', UsuarioController::class)->except(['show']);
     });
-Route::middleware('auth')->group(function () {
-    Route::get('/aluno/dashboard', function () {
-        return view('aluno.dashboard');
-    })->name('aluno.dashboard');
-});

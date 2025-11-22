@@ -69,7 +69,8 @@
         <section class="actions">
             <button class="action-btn">Começar Trilha</button>
             <button class="action-btn">Jogar Agora</button>
-            <button class="action-btn">Ver Dicas</button>
+          <a href="{{ route('dicas') }}" class="action-btn">Ver Dicas</a>
+
             <button class="action-btn">Comunidade</button>
         </section>
 
