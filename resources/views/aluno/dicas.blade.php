@@ -45,7 +45,7 @@ $color_index = 0;
                                 Se for um path de imagem, use <img>, como abaixo.
                                 Se for uma imagem real:
                             --}}
-                            <img src="{{ asset('icones/' . $dica->icone) }}" alt="Ícone da dica" class="tip-image">
+                            <img src="{{ Storage::url($dica->icone) }}" alt="Ícone da dica" class="tip-image">
 
                             {{-- Se for um ícone FA/personalizado, use (necessário linkar Font Awesome):
                             <i class="{{ $dica->icone }} tip-icon"></i>

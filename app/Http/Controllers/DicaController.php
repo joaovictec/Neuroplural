@@ -5,72 +5,111 @@ namespace App\Http\Controllers;
 use App\Models\Dica;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str; // Necessário para normalizar o nome do arquivo
 
 class DicaController extends Controller
 {
-    // LISTAR dicas na página pública (Nova rota: dicas)
-    public function listPublic() // Renomeado de index() para evitar conflito
+    // ------------------------------------------------------------------
+    // MÉTODOS PÚBLICOS (Para Alunos)
+    // ------------------------------------------------------------------
+
+    /**
+     * Lista todas as dicas para a página pública (aluno).
+     * Rota esperada: /dicas (ou similar)
+     */
+    public function aluno()
     {
         $dicas = Dica::all();
+        // Nota: Assumindo que o nome da view é 'aluno.dicas'
         return view('aluno.dicas', compact('dicas'));
     }
 
-    // LISTAR para admin (Agora é o index() oficial do recurso admin.dicas)
+    /**
+     * Exibe os detalhes de uma dica específica.
+     * Rota esperada: /dicas/{id}
+     */
+    public function showAluno($id)
+    {
+        $dica = Dica::findOrFail($id);
+        // Nota: Assumindo que o nome da view é 'aluno.dicas-show'
+        return view('aluno.dicas-show', compact('dica'));
+    }
+
+    // ------------------------------------------------------------------
+    // MÉTODOS DE ADMINISTRAÇÃO (CRUD)
+    // ------------------------------------------------------------------
+
+    /**
+     * Lista todas as dicas para a área administrativa.
+     * Rota: admin.dicas.index
+     */
     public function index()
     {
         $dicas = Dica::all();
         return view('admin.dicas.index', compact('dicas'));
     }
 
-    // Exibir formulário de criar (Rota: admin.dicas.create)
+    /**
+     * Exibe o formulário de criação de nova dica.
+     * Rota: admin.dicas.create
+     */
     public function create()
     {
         return view('admin.dicas.create');
     }
 
-    // Salvar no banco (Rota: admin.dicas.store)
+    /**
+     * Salva a nova dica e o arquivo de ícone no storage.
+     * Rota: admin.dicas.store
+     */
     public function store(Request $request)
     {
         $request->validate([
-            'titulo' => 'required',
+            'titulo' => 'required|max:255',
             'descricao' => 'required',
-            'icone' => 'required|image'
+            // O campo 'icone' deve ser obrigatório e um arquivo de imagem
+            'icone' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
 
-        $nomeImagem = $request->icone->store('dicas', 'public');
+        $pathIcone = null;
+
+        if ($request->hasFile('icone')) {
+            // Obtém o nome original do arquivo e normaliza para ser amigável à URL
+            $nomeOriginal = Str::slug(pathinfo($request->file('icone')->getClientOriginalName(), PATHINFO_FILENAME));
+            $extensao = $request->file('icone')->getClientOriginalExtension();
+            $nomeArquivo = $nomeOriginal . '-' . time() . '.' . $extensao;
+
+            // Armazena o arquivo em storage/app/public/icones
+            // O retorno é o caminho completo (ex: 'icones/nome-arquivo.png')
+            $pathIcone = $request->file('icone')->storeAs('dicas', $nomeArquivo, 'public');
+        }
 
         Dica::create([
             'titulo' => $request->titulo,
             'descricao' => $request->descricao,
-            'icone' => $nomeImagem
+            // Salva o caminho completo no banco de dados para facilitar a recuperação
+            'icone' => $pathIcone
         ]);
 
-        // Retornando para a listagem de admin (admin.dicas.index)
-        return redirect()->route('admin.dicas.index')->with('sucesso', 'Dica adicionada!');
+        return redirect()->route('admin.dicas.index')->with('sucesso', 'Dica adicionada com sucesso!');
     }
 
-    // Remover dica (Rota: admin.dicas.destroy)
+    /**
+     * Remove a dica e o arquivo de ícone associado do storage.
+     * Rota: admin.dicas.destroy
+     */
     public function destroy($id)
     {
         $dica = Dica::findOrFail($id);
 
-        Storage::disk('public')->delete($dica->icone);
+        // 1. Apaga o arquivo do disco 'public' (storage/app/public)
+        if ($dica->icone && Storage::disk('public')->exists($dica->icone)) {
+            Storage::disk('public')->delete($dica->icone);
+        }
 
+        // 2. Apaga o registro do banco
         $dica->delete();
 
         return back()->with('sucesso', 'Dica removida.');
     }
-public function aluno()
-{
-    $dicas = Dica::all(); // pega todas as dicas
-    return view('aluno.dicas', compact('dicas'));
-}
-public function showAluno($id)
-{
-    // Busca a dica pelo ID ou retorna 404 se não existir
-    $dica = Dica::findOrFail($id);
-
-    // Retorna a view passando a dica
-    return view('aluno.dicas-show', compact('dica'));
-}
 }
