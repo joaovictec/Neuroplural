@@ -1,0 +1,114 @@
+/* --- Estilos da Tela de Jogos (image_7a0d94.png) --- */
+
+.jogos-page-container {
+    padding: 0 50px 50px; /* Mantém o alinhamento com o restante do site */
+}
+
+.section-header-jogos {
+    /* Reutiliza section-title e section-subtitle */
+    margin-bottom: 30px;
+}
+
+/* Grid de Jogos (Semelhante ao de Dicas) */
+.jogos-grid {
+    display: grid;
+    /* 3 colunas, como na referência */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.jogo-card {
+    background-color: var(--color-card-bg);
+    border-radius: 12px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s;
+    height: 350px; /* Altura fixa para manter o alinhamento */
+}
+
+.jogo-card:hover {
+    transform: translateY(-5px);
+}
+
+.jogo-icon-container {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.jogo-icon {
+    font-size: 35px;
+    object-fit: contain;
+}
+
+.jogo-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--color-text-dark);
+    margin-bottom: 5px;
+}
+
+.jogo-description {
+    font-size: 14px;
+    color: var(--color-text-light);
+    flex-grow: 1; /* Empurra os stats para baixo */
+    margin-bottom: 20px;
+    min-height: 40px; /* Garante que a descrição não seja muito curta */
+}
+
+/* Estatísticas (Estrelas/Jogadores) */
+.jogo-stats {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.stat-item {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--color-text-light);
+}
+
+.stat-item i.fa-star {
+    color: #ffc107; /* Amarelo/Laranja para estrelas */
+    margin-right: 5px;
+}
+
+.stat-item i.fa-users {
+    margin-right: 5px;
+}
+
+/* Botão "Jogar" */
+.jogo-button {
+    background-color: var(--color-saber-mais-bg);
+    border: 1px solid var(--color-saber-mais-border);
+    color: var(--color-text-dark);
+    padding: 10px 30px;
+    border-radius: 20px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+    font-weight: 500;
+    margin-top: auto; /* Garante que o botão fique no final */
+    display: block;
+    width: 100%;
+    max-width: 150px;
+    text-align: center;
+}
+
+.jogo-button:hover {
+    background-color: var(--color-neuroplural-orange);
+    border-color: var(--color-neuroplural-orange);
+    color: white;
+}

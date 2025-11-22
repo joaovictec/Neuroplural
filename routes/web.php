@@ -102,3 +102,17 @@ Route::middleware(['auth', 'eh.admin'])
 
         Route::resource('usuarios', UsuarioController::class)->except(['show']);
     });
+    Route::view('/comunidade', 'aluno.comunidade')
+    ->name('aluno.comunidade');
+
+
+    Route::view('/jogos', 'aluno.jogos')
+    ->name('aluno.jogos');
+
+
+      Route::view('/trilhas', 'aluno.trilhas')
+    ->name('aluno.trilhas');
+
+
+     Route::view('/gestao', 'aluno.gestao')
+    ->name('aluno.gestao');

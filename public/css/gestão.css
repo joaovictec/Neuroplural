@@ -1,0 +1,135 @@
+/* --- Estilos da Tela de Minhas Atividades (image_7af270.png) --- */
+
+.atividades-page-container {
+    padding: 0 50px 50px;
+    max-width: 900px; /* Limita a largura do conteúdo central */
+}
+
+.section-header-atividades {
+    margin-bottom: 30px;
+}
+
+.atividades-panel {
+    background-color: var(--color-card-bg); /* Fundo branco/claro */
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    margin-bottom: 30px;
+}
+
+.atividades-panel-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--color-text-dark);
+    margin-bottom: 20px;
+}
+
+.atividade-item {
+    display: flex;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #f0f0f0;
+    transition: background-color 0.2s;
+}
+
+.atividade-item:last-child {
+    border-bottom: none; /* Remove a borda do último item */
+}
+
+.atividade-item:hover:not(.concluida) {
+    background-color: #fafafa;
+}
+
+/* --- Checkbox Personalizado --- */
+.checkbox-container {
+    width: 25px;
+    height: 25px;
+    min-width: 25px;
+    margin-right: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.checkbox-container input[type="checkbox"] {
+    /* Esconde o input padrão */
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.checkbox-container label {
+    width: 22px;
+    height: 22px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: white;
+    display: block;
+}
+
+/* Estado de Concluído */
+.atividade-item.concluida {
+    color: #9e9e9e; /* Diminui a cor do texto */
+}
+
+.atividade-item.concluida .check-icon {
+    font-size: 14px;
+    color: #4CAF50; /* Verde de sucesso */
+    border: 2px solid #4CAF50;
+    border-radius: 50%;
+    padding: 3px;
+    background-color: #e8f5e9;
+}
+.atividade-item.concluida .checkbox-container {
+    /* Reset para o ícone */
+    border: none;
+}
+
+
+/* --- Detalhes da Atividade --- */
+.atividade-details {
+    flex-grow: 1;
+}
+
+.atividade-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-text-dark);
+    margin-bottom: 2px;
+}
+
+.atividade-item.concluida .atividade-name {
+    text-decoration: line-through;
+    color: #9e9e9e;
+}
+
+.atividade-info {
+    font-size: 14px;
+    color: var(--color-text-light);
+}
+
+/* --- Horários e Prazos --- */
+.atividade-time {
+    font-size: 14px;
+    font-weight: 500;
+    padding: 5px 10px;
+    border-radius: 12px;
+    margin-left: 15px;
+}
+
+.atividade-time.today {
+    background-color: #fff3e0; /* Laranja claro */
+    color: #f57c00; /* Laranja escuro */
+}
+
+.atividade-time.tomorrow {
+    background-color: #e8f0fe; /* Azul claro */
+    color: #1976d2; /* Azul escuro */
+}
+
+.atividade-item.concluida .atividade-time.completed {
+    background-color: transparent;
+    color: #9e9e9e;
+    font-weight: 400;
+}

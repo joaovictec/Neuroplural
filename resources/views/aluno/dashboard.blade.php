@@ -68,13 +68,13 @@
 
         {{-- BOTÕES --}}
         <section class="actions">
-            <button class="action-btn">Começar Trilha</button>
-            <button class="action-btn">Jogar Agora</button>
+            <a href="{{ route('aluno.trilhas') }}" class="action-btn">Começar Trilha</a>
+            <a href="{{ route('aluno.jogos') }}" class="action-btn">Jogar Agora</a>
 
             {{-- ✅ CORREÇÃO APLICADA: Usando a rota nomeada 'aluno.dicas' que tem o prefixo /aluno --}}
             <a href="{{ route('aluno.dicas') }}" class="action-btn">Ver Dicas</a>
 
-            <button class="action-btn">Comunidade</button>
+            <a href="{{ route('aluno.comunidade') }}" class="action-btn">Comunidade</a>
         </section>
 
         {{-- RECOMENDADOS --}}
@@ -93,7 +93,7 @@
                 <div class="rec-card">
                     <h3>Gestão de tempo</h3>
                     <p>Organize seu tempo de forma eficiente</p>
-                    <button>Começar</button>
+                    <a href="{{ route('aluno.gestao') }}" class="reco-btn">Começar Trilha</a>
                 </div>
 
                 <div class="rec-card">
@@ -111,7 +111,7 @@
 
     {{-- FOOTER --}}
     <footer class="footer">
-        <img src="{{ asset('images/logo.png') }}" class="footer-logo" alt="NeuroPlural">
+        <img src="{{ asset('assets/Logo_NeuroPlural__1_-removebg-preview.png') }}" alt="NeuroPlural" class="logo">
 
         <p>
             NeuroPlural é uma plataforma dedicada a promover a compreensão e o apoio a pessoas com TDAH e suas famílias.

@@ -1,0 +1,146 @@
+/* --- Estilos da Tela de Trilhas (image_7a1c40.png) --- */
+
+.trilhas-page-container {
+    padding: 0 50px 50px; /* Mantém o alinhamento */
+}
+
+.section-header-trilhas {
+    margin-bottom: 30px;
+}
+
+/* Grid de Trilhas (4 Colunas) */
+.trilhas-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.trilha-card {
+    background-color: var(--color-card-bg);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    height: 240px; /* Altura fixa para manter o alinhamento */
+    transition: box-shadow 0.2s;
+}
+
+.trilha-card:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.trilha-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 10px;
+}
+
+.trilha-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--color-text-dark);
+    line-height: 1.3;
+    margin-right: 10px;
+}
+
+.trilha-tag {
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 4px;
+    color: white;
+    text-transform: uppercase;
+}
+
+/* Cores das Tags (Importante para a estética) */
+.trilha-tag.iniciante {
+    background-color: #4CAF50; /* Verde */
+}
+
+.trilha-tag.intermediario {
+    background-color: #FF9800; /* Laranja */
+}
+
+.trilha-tag.avancado {
+    background-color: #2196F3; /* Azul */
+}
+
+.trilha-description {
+    font-size: 14px;
+    color: var(--color-text-light);
+    margin-bottom: 20px;
+    line-height: 1.4;
+    flex-grow: 1; /* Empurra o progresso para baixo */
+}
+
+/* --- Barra de Progresso --- */
+.progress-container {
+    height: 6px;
+    background-color: #eee;
+    border-radius: 3px;
+    margin-bottom: 5px;
+    overflow: hidden;
+}
+
+.progress-container.not-started {
+    background-color: #f0f0f0;
+}
+
+.progress-bar {
+    height: 100%;
+    background: linear-gradient(to right, #FF9800, #FFC107); /* Laranja/Amarelo */
+    border-radius: 3px;
+    transition: width 0.5s ease-in-out;
+}
+
+/* A barra de progresso do cartão 3 (Organização) parece ser rosa/magenta na ref. */
+.trilha-card:nth-child(3) .progress-bar {
+    background: linear-gradient(to right, #E91E63, #FF4081); /* Rosa/Magenta */
+}
+
+.progress-text {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--color-text-dark);
+    margin-bottom: 20px;
+}
+
+.progress-text.not-started-text {
+    color: var(--color-text-light);
+    font-weight: 400;
+}
+
+/* --- Botões --- */
+.trilha-button {
+    text-align: center;
+    padding: 10px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    width: 100%;
+    margin-top: auto; /* Alinha o botão na parte inferior */
+}
+
+.trilha-button.continuar {
+    background-color: #f0f0f0;
+    color: var(--color-text-dark);
+    border: 1px solid #e0e0e0;
+}
+
+.trilha-button.continuar:hover {
+    background-color: #e0e0e0;
+}
+
+.trilha-button.comecar {
+    background-color: var(--color-neuroplural-orange); /* Laranja do logo */
+    color: white;
+    border: none;
+}
+
+.trilha-button.comecar:hover {
+    background-color: #e67e22;
+}

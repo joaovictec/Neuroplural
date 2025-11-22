@@ -18,16 +18,26 @@ body {
     align-items: center;
     padding: 15px 40px;
     color: white;
+    height: 8dvh;
 }
-
+.back-btn{
+    color: white;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
 .top-bar a {
     margin-left: 20px;
     color: white;
-    font-weight: 500;
+    font-weight: 600;
+    font-size:19px;
+    text-decoration: none;
 }
 
 .logo {
-    height: 45px;
+
+    width: 125px;
 }
 
 .user-box {
@@ -60,6 +70,7 @@ body {
 /* MAIN */
 .dashboard {
     padding: 40px 80px;
+    height: 72dvh;
 }
 
 .dashboard h1 {
@@ -123,6 +134,11 @@ body {
     border: 1px solid #ddd;
     font-size: 1rem;
     cursor: pointer;
+    text-decoration: none;
+    text-align:center;
+    color:#0f2942;
+    font-weight: 700;
+    font-size: 19px;
 }
 
 .recommended h2 {
@@ -135,24 +151,73 @@ body {
     gap: 20px;
 }
 
+/* --- Estilo para o Cartão de Gestão de Tempo (.rec-card) --- */
 .rec-card {
-    background: white;
-    padding: 25px;
-    width: 30%;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    /* Cor de fundo cinza claro (baseado na referência) */
+    background-color: #f7f7f7;
+
+    padding: 30px;
+    border-radius: 15px; /* Arredondamento maior */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+
+    /* Centraliza o conteúdo (Título, Parágrafo, Botão) */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    /* Define uma altura mínima, se necessário, para alinhamento em grids */
+    /* min-height: 200px; */
 }
 
-.rec-card button {
-    margin-top: 15px;
-    width: 100%;
-    padding: 10px;
-    border-radius: 8px;
-    background: #ddd;
-    border: none;
+/* Título */
+.rec-card h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #174d8c; /* Azul escuro principal do título */
+    margin-bottom: 5px;
+}
+
+/* Descrição */
+.rec-card p {
+    font-size: 14px;
+    color: #888; /* Cinza claro para a descrição */
+    margin-bottom: 20px;
+    line-height: 1.4;
+    max-width: 80%; /* Limita a largura do texto para centralizar melhor */
+}
+
+/* --- Estilo para o Botão "Começar" (.reco-btn) --- */
+.rec-card .reco-btn {
+    /* Estilo do botão na referência: fundo branco, texto preto, borda arredondada */
+    background-color: white;
+    color: #222; /* Texto preto/escuro */
+
+    margin-top: 15px; /* Espaço entre o parágrafo e o botão */
+    padding: 12px 30px; /* Padding ajustado para o tamanho do botão na referência */
+
+    /* Bordas e Sombra */
+    border-radius: 25px;
+    border: 1px solid #ccc; /* Borda suave */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+    /* Configurações de layout */
+    width: 90%; /* Ocupa quase a largura total do card */
+    max-width: 200px;
+    display: block; /* Garante que ocupe a largura total definida */
+
+    font-size: 18px;
+    font-weight: 700;
+    text-decoration: none;
     cursor: pointer;
+    transition: background-color 0.2s, box-shadow 0.2s;
 }
 
+.rec-card .reco-btn:hover {
+    background-color: #f0f0f0; /* Um leve cinza no hover */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
 /* FOOTER */
 .footer {
     margin-top: 60px;

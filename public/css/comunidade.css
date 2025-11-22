@@ -1,0 +1,110 @@
+.comunidade-page-container {
+    padding: 0 50px 50px; /* Top, Right, Bottom, Left */
+}
+
+.section-header-comunidade {
+    /* O estilo de section-title e section-subtitle já está definido */
+    margin-bottom: 30px;
+}
+
+.discussion-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--color-text-dark);
+    margin-bottom: 20px;
+}
+
+.discussion-card {
+    display: flex;
+    background-color: var(--color-card-bg);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 15px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    border: 1px solid #eee;
+    transition: box-shadow 0.2s;
+}
+
+.discussion-card:hover {
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+.user-avatar-small {
+    width: 45px;
+    height: 45px;
+    min-width: 45px; /* Garante que o avatar não encolha */
+    border-radius: 50%;
+    margin-right: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px; /* Para exibir emojis ou iniciais */
+}
+
+.discussion-content {
+    flex-grow: 1;
+}
+
+.discussion-question {
+    font-size: 15px;
+    line-height: 1.5;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column; /* Coloca o nome em uma linha e o texto em outra */
+}
+
+.discussion-question strong {
+    font-weight: 600;
+    color: var(--color-text-dark);
+    margin-bottom: 2px;
+}
+
+.question-text {
+    color: var(--color-text-light);
+}
+
+.discussion-stats {
+    display: flex;
+    font-size: 13px;
+    color: var(--color-text-light);
+}
+
+.stat-item {
+    margin-right: 20px;
+    font-weight: 500;
+}
+
+.stat-item i {
+    margin-right: 5px;
+    font-size: 12px;
+}
+
+/* Cores específicas para os ícones */
+.stat-item.heart {
+    color: #e53935; /* Vermelho para likes */
+}
+
+.stat-item.reply {
+    color: var(--color-neuroplural-orange); /* Laranja para respostas */
+}
+
+/* Estilo para o botão de nova discussão (opcional) */
+.new-discussion-area {
+    margin-top: 20px;
+}
+
+.new-discussion-button {
+    background-color: var(--color-neuroplural-green);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    font-weight: 500;
+    font-size: 15px;
+}
+
+.new-discussion-button:hover {
+    background-color: #388e3c;
+}
