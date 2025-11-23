@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="{{ asset('css/nav.css') }}">
 @section('professor-header')
     <div class="top-nav-professor">
-         <button class="back-btn">←</button>
+          <a href="{{ route('dashboard') }}" class="back-btn" style="text-decoration: none;">←</a>
         <a href="{{ route('professor.dashboard') }}" class="nav-item">Sobre Nós</a>
         <a href="{{ route('professor.dashboard') }}" class="nav-item">Início</a>
     </div>

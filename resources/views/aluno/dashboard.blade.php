@@ -7,7 +7,7 @@
     {{-- HEADER --}}
     <header class="top-bar">
         <div class="left">
-            <button class="back-btn">←</button>
+          <a href="{{ route('dashboard') }}" class="back-btn" style="text-decoration: none;">←</a>
             <a href="#">Sobre Nós</a>
             <a href="#">Início</a>
         </div>
@@ -17,7 +17,7 @@
         </div>
 
         <div class="right">
-            <span class="notif">🔔</span>
+
             <div class="user-box">
                 <div class="profile-pic"></div>
                 <div class="user-info">

@@ -1,7 +1,8 @@
 /* --- Estilos da Tela de Jogos (image_7a0d94.png) --- */
 
 .jogos-page-container {
-    padding: 0 50px 50px; /* Mantém o alinhamento com o restante do site */
+    /* MUDANÇA: Padding horizontal baseado em porcentagem para melhor adaptação a diferentes tamanhos de tela. */
+    padding: 0 5% 50px; /* Mantém o alinhamento com o restante do site */
 }
 
 .section-header-jogos {
@@ -17,19 +18,42 @@
     gap: 20px;
 }
 
+/* --- RESPONSIVIDADE PARA TELAS MÉDIAS (até 1024px, ex: Notebooks de 720p) --- */
+@media (max-width: 1024px) {
+    .jogos-grid {
+        grid-template-columns: repeat(2, 1fr); /* Muda para 2 colunas */
+    }
+
+    .jogos-page-container {
+        padding: 0 3% 40px; /* Ajusta o padding */
+    }
+}
+
+/* --- RESPONSIVIDADE PARA TELAS PEQUENAS (até 768px, ex: Tablets) --- */
+@media (max-width: 768px) {
+    .jogos-grid {
+        grid-template-columns: 1fr; /* Muda para 1 coluna */
+    }
+
+    .jogos-page-container {
+        padding: 0 20px 30px; /* Padding fixo e menor em telas estreitas */
+    }
+}
+
 .jogo-card {
     background-color: var(--color-card-bg);
     border-radius: 12px;
-    padding: 30px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
     transition: transform 0.2s;
-    height: 350px; /* Altura fixa para manter o alinhamento */
+    /* 🔥 Altura Responsiva */
+    min-height: 28dvh;/* Mantém o tamanho em telas grandes */
+    height: auto; /* Permite crescer em telas pequenas */
 }
-
 .jogo-card:hover {
     transform: translateY(-5px);
 }

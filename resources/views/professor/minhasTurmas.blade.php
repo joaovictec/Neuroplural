@@ -7,8 +7,7 @@
 
 @section('professor-header')
     <div class="top-nav-professor">
-        <button class="back-btn">←</button>
-        <a href="#" class="nav-item">Sobre Nós</a>
+<a href="{{ route('professor.dashboard') }}" class="back-btn" style="text-decoration: none;">←</button>        <a href="#" class="nav-item">Sobre Nós</a>
         <a href="#" class="nav-item">Início</a>
     </div>
 @endsection

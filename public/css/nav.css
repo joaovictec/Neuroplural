@@ -91,6 +91,7 @@
     font-weight: 600;
     margin: 0;
     padding: 0;
+    color:black;
     border-bottom: none; /* Remove borda que pode ter vindo de .card-base-title */
 }
 

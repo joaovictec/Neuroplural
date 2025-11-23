@@ -16,6 +16,8 @@
     {{-- 3. HEADER COMPLETO (Topo da página) --}}
     <header class="header">
         <nav class="nav-links">
+                      <a href="{{ route('aluno.dashboard') }}" class="back-btn" style="text-decoration: none;">←</a>
+
             <a href="#">Sobre Nós</a>
             <a href="#">Início</a>
         </nav>

@@ -22,18 +22,11 @@ body {
     font-family: var(--font-family-primary);
 }
 
-
-/* ================================================= */
-/* 1. HEADER E NAVEGAÇÃO SUPERIOR */
-/* ================================================= */
-
-.professor-header {
-    background-color: var(--header-cor);
-    padding: 10px 50px;
+/* Configuração do Body para Flexbox para Rodapé Fixo (Sticky Footer) */
+body {
+    min-height: 100vh; /* Ocupa a altura total da viewport */
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 60px;
+    flex-direction: column;
 }
 
 /* Reset original, apenas modificado para aplicar a fonte */
@@ -41,6 +34,20 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+/* ================================================= */
+/* 1. HEADER E NAVEGAÇÃO SUPERIOR */
+/* ================================================= */
+
+.professor-header {
+    background-color: var(--header-cor);
+    /* MUDANÇA: Padding horizontal para porcentagem para melhor adaptação */
+    padding: 10px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
 }
 
 /* Menu Voltar | Saber Mais | Início */
@@ -64,7 +71,7 @@ body {
 .user-info-professor {
     display: flex;
     align-items: center;
-    color: var(--color-text-dark);
+    color: white; /* Alterado para branco, pois o header é colorido */
     font-weight: 500;
 }
 
@@ -91,8 +98,13 @@ body {
 }
 
 span.nome-professor {
-    color: var(--color-text-dark); /* Nome do professor na cor padrão do texto */
+    color: white; /* Alterado para branco para contraste com o header */
     margin-left: 10px;
+    /* Adicionado max-width e overflow para telas pequenas */
+    max-width: 120px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 
@@ -102,8 +114,10 @@ span.nome-professor {
 
 .professor-dashboard-container {
     background-color: var(--color-background-light); /* Fundo cinza suave */
-    padding: 30px 50px;
-    height: 80vh;
+    /* MUDANÇA: Padding horizontal para porcentagem */
+    padding: 30px 5%;
+    /* MUDANÇA CRÍTICA: Removido 'height: 80vh' e adicionado flex-grow */
+    flex-grow: 1; /* Ocupa todo o espaço restante antes do footer */
 }
 
 .page-title-professor {
@@ -133,6 +147,7 @@ span.nome-professor {
 
 .stats-grid {
     display: grid;
+    /* 4 colunas em telas grandes */
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
     margin-bottom: 30px;
@@ -183,7 +198,7 @@ span.nome-professor {
     opacity: 0.8;
 }
 
-/* CORES DOS CARDS (Baseado na referência Captura de tela 2025-11-22 104100.png) */
+/* CORES DOS CARDS */
 .stat-turmas {
     background-color: #5cb85c; /* Verde */
 }
@@ -207,6 +222,7 @@ span.nome-professor {
 
 .dashboard-split-section {
     display: grid;
+    /* MUDANÇA: Colunas relativas para telas maiores */
     grid-template-columns: 2fr 1fr;
     gap: 20px;
     margin-bottom: 30px;
@@ -267,8 +283,15 @@ span.nome-professor {
 /* 5. TABELA (Alunos que Precisam de Atenção) */
 /* ================================================= */
 
+.alunos-atencao-table {
+    /* Adicionado overflow-x para permitir rolagem horizontal em telas pequenas */
+    overflow-x: auto;
+}
+
 .alunos-atencao-table table {
+    /* MUDANÇA: min-width para evitar que a tabela encolha demais em telas móveis */
     width: 100%;
+    min-width: 600px;
     border-collapse: collapse;
 }
 
@@ -310,4 +333,72 @@ span.nome-professor {
     font-weight: 600;
     /* Usando a variável de fonte do header, se desejar diferenciada */
     font-family: var(--font-family-header);
+    /* Garante que o footer é empurrado para o final pelo flex-grow do container */
+    padding: 20px 5%;
+    background-color: var(--color-footer-bg);
+    color: white;
+}
+
+
+/* ================================================= */
+/* 6. MEDIA QUERIES (Responsividade) */
+/* ================================================= */
+
+/* TELAS DE DESKTOP PEQUENAS E TABLETS (MAX 1200px) */
+@media (max-width: 1200px) {
+    /* Reduz o grid de estatísticas para 3 colunas */
+    .stats-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* TABLETS E TELAS MÉDIAS (MAX 900px) */
+@media (max-width: 900px) {
+    /* Reduz o grid de estatísticas para 2 colunas */
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* O layout dividido se torna em uma coluna (uma seção abaixo da outra) */
+    .dashboard-split-section {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* SMARTPHONES E TELAS PEQUENAS (MAX 600px) */
+@media (max-width: 600px) {
+    /* Ajusta o padding dos containers principais */
+    .professor-header,
+    .professor-dashboard-container {
+        padding: 10px 20px;
+    }
+    .main-footer{
+        padding: 20px;
+    }
+
+    /* Reduz o grid de estatísticas para 1 coluna */
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Esconde ou simplifica elementos do header */
+    .top-nav-professor {
+        gap: 10px;
+    }
+
+    .top-nav-professor .nav-item {
+        font-size: 13px;
+    }
+
+    /* Ajusta o tamanho da fonte dos títulos */
+    .page-title-professor {
+        font-size: 20px;
+    }
+    .page-subtitle-professor {
+        font-size: 14px;
+    }
+
+    .stat-number {
+        font-size: 28px;
+    }
 }

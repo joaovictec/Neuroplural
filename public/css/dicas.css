@@ -47,6 +47,9 @@ body {
     background-color: var(--color-background-light);
     color: var(--color-text-dark);
     line-height: 1.6;
+    min-height: 100vh; /* Garante que o body ocupa a altura total da viewport */
+    display: flex; /* Adicionado para layout flexível */
+    flex-direction: column; /* Adicionado para layout flexível */
 }
 
 a {
@@ -66,6 +69,7 @@ a {
     background-color: var(--color-neuroplural-orange);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
     height: 6dvh;
+    min-height: 50px; /* Garante uma altura mínima */
 }
 
 .nav-links a {
@@ -94,9 +98,11 @@ a {
 }
 
 .main-body-container {
-    padding: 0 50px;
+    /* MUDANÇA CRÍTICA: Removido 'height: 80dvh' para permitir que o conteúdo principal se expanda */
+    /* MUDANÇA: Padding horizontal baseado em porcentagem para melhor adaptação */
+    padding: 0 5%;
     width: 100%;
-    height: 80dvh;
+    flex-grow: 1; /* Permite que o conteúdo ocupe todo o espaço disponível antes do footer */
 }
 
 .top-bar {
@@ -190,6 +196,7 @@ a {
 /* Grade de Dicas */
 .tips-grid {
     display: grid;
+    /* 4 colunas em telas grandes */
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
     padding-bottom: 50px;
@@ -205,6 +212,8 @@ a {
     text-align: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s;
+    /* Altura agora é baseada no conteúdo, mas mantive o 'height: 250px' original. */
+    /* Para maior flexibilidade, você pode mudar isso para 'min-height'. */
     height: 250px;
 }
 
@@ -322,9 +331,10 @@ a {
 .footer {
     background-color: var(--color-footer-bg);
     color: #fff;
-    padding: 40px 50px 20px;
+    /* MUDANÇA: Padding horizontal responsivo */
+    padding: 40px 5% 20px;
     margin-top: 50px;
-
+    /* Garante que o footer sempre fique abaixo do conteúdo graças ao 'flex-grow: 1' no body */
 }
 
 .footer-content {
@@ -394,4 +404,74 @@ a {
     margin-left: 15px;
     color: #aaa;
     cursor: pointer;
+}
+
+
+/* ---------------------------------------------------- */
+/* --- 4. MEDIA QUERIES (Responsividade) --- */
+/* ---------------------------------------------------- */
+
+/* Ajustes para Top Bar em telas menores */
+@media (max-width: 1024px) {
+    .search-bar {
+        width: 350px; /* Reduz a barra de pesquisa */
+    }
+
+    .top-bar {
+        flex-direction: column; /* Coloca busca e usuário um embaixo do outro */
+        align-items: flex-start;
+        margin-bottom: 20px;
+    }
+
+    .search-bar {
+        margin-bottom: 15px;
+    }
+}
+
+/* Grid de Dicas: 3 Colunas em telas médias */
+@media (max-width: 1200px) {
+    .tips-grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 colunas */
+    }
+}
+
+/* Grid de Dicas: 2 Colunas em telas menores (ex: 720p ou tablets) */
+@media (max-width: 900px) {
+    .tips-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 colunas */
+    }
+
+    .main-body-container {
+        padding: 0 3%; /* Reduz o padding */
+    }
+}
+
+/* Grid de Dicas: 1 Coluna em telas muito pequenas (ex: mobile ou tablets verticais) */
+@media (max-width: 600px) {
+    .tips-grid {
+        grid-template-columns: 1fr; /* 1 coluna */
+    }
+
+    .main-body-container {
+        padding: 0 20px; /* Padding fixo e menor */
+    }
+
+    .footer {
+        padding: 30px 20px 15px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-copyright {
+        margin: 10px 0;
+    }
+
+    .footer-links a {
+        margin: 0 10px 10px 0;
+        display: inline-block;
+    }
 }
