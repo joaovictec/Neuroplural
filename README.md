@@ -1,7 +1,6 @@
-# 📰 Portal de Notícias - Laravel 12
+# Neuroplural - pagina com foco em TDAH 
 
-> Projeto didático de um portal de notícias desenvolvido com Laravel 12, PHP 8.4 e MySQL 8, criado para fins educacionais com foco em boas práticas e código limpo.
-
+> Projeto didático de um pagina com foco nas pessoas com tdah, objetivo ajudar alunos e professores no contexto do tdah
 ![Laravel](https://img.shields.io/badge/Laravel-12.36.1-red?style=flat&logo=laravel)
 ![PHP](https://img.shields.io/badge/PHP-8.4.14-blue?style=flat&logo=php)
 ![MySQL](https://img.shields.io/badge/MySQL-8.0-orange?style=flat&logo=mysql)
@@ -60,17 +59,16 @@ Este é um **portal de notícias simplificado** desenvolvido como material didá
 ## ✨ Funcionalidades
 
 ### Área Pública
-- ✅ Listagem de notícias publicadas
-- ✅ Visualização de notícia completa
-- ✅ Ordenação por data de atualização
-- ✅ Paginação automática
-- ✅ Categorização por tipo de notícia
-- ✅ Design responsivo e moderno
+- ✅ Área aluno dashboard
+- ✅ Área professor dashboard
+- ✅ Técnicas de Estudo: métodos como Pomodoro, resumo inteligente e fragmentação de tarefas.
+- ✅ Gestão do Tempo: dicas para organização semanal, uso de cronômetros e priorização de atividades.
+- ✅ Metas e Objetivos: estímulo ao planejamento pessoal e acadêmico, com exemplos diretos de metas alcançáveis.
+- ✅Dicas Práticas: orientações rápidas para melhorar foco, concentração e rotina
 
 ### Área Administrativa
 - ✅ Dashboard com estatísticas
-- ✅ CRUD completo de Notícias
-- ✅ CRUD completo de Tipos de Notícia
+- ✅ CRUD completo de dicas
 - ✅ CRUD completo de Usuários
 - ✅ Sistema de publicação/rascunho
 - ✅ Controle de acesso (apenas administradores)
